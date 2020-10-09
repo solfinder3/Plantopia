@@ -8,6 +8,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import Rooms from './components/rooms/Rooms';
 
 const App = () => (
   <>
@@ -18,6 +19,7 @@ const App = () => (
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
+          <Route exact path='/rooms' component={Rooms} />
           <Route component={NoMatch} />
         </Switch>
       </Container>
