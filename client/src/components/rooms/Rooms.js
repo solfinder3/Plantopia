@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { RoomConsumer } from '../../providers/RoomProvider';
-
+import RoomForm from './RoomForm'
 
 const Rooms = (props) => {
 
@@ -27,6 +27,7 @@ const Rooms = (props) => {
   return (
     <>
       {listRooms()}
+      <RoomForm addRoom={props.addRoom}/>
     </>
   )
 }
