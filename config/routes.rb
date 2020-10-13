@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   namespace :api do
 
-    resources :rooms
+    resources :rooms do
+      resources :plants
+    end
     
   end
 

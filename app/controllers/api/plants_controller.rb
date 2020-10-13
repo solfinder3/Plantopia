@@ -17,7 +17,7 @@ class Api::PlantsController < ApplicationController
   def update
     plant = @room.plants.find(params[:id])
     if plant.update
-      render json: comment
+      render json: plant
     else
       render json: { errors: plant.errors }, status: :unprocessable_entity
     end
