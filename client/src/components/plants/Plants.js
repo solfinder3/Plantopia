@@ -1,12 +1,47 @@
-import React, {useState, useEffect} from 'react';
-import { PlantConsumer } from '../../providers/PlantProvider';
-
-const Plants = () => {
+import React, { useState, useEffect } from 'react';
+import { PlantsConsumer } from '../../providers/PlantsProvider';
 
 
-  return(
-    <h1>Plants Page</h1>
+const Plants = (props) => {
+
+  useEffect(() => {
+    props.getPlants()
+  }, [])
+
+  const listPlants = () => {
+    if (props.plants.length !== 0) {
+      return (
+        <ul>
+          { props.plants.map(p =>
+            <li>
+              {p.name}
+            </li>
+          )}
+        </ul>
+      )
+    } else {
+      return (<h1>No Plants</h1>)
+    }
+  }
+  // if(!props.rooms) return null
+  return (
+    <>
+      {listPlants()}
+    </>
   )
 }
 
-export default Plants;
+const ConnectedPlants = (props) => (
+  <PlantsConsumer>
+    {
+      value => (
+        <Plants
+          {...props}
+          {...value}
+        />
+      )
+    }
+  </PlantsConsumer>
+)
+
+export default ConnectedPlants;
