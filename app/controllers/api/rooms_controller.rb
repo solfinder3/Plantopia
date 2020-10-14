@@ -4,6 +4,10 @@ class Api::RoomsController < ApplicationController
     render json: Room.all
   end
 
+  def show
+    render json: Room.find(params[:id])
+  end
+
   def create
     room = Room.new(room_params)
     if room.save

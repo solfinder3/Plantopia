@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { RoomConsumer } from '../../providers/RoomProvider';
 import RoomForm from './RoomForm'
+import Room from  './Room';
 
 const Rooms = (props) => {
+  const [toggleForm, setToggleForm] = useState(false)
 
   useEffect(() => {
     props.getRooms()
@@ -13,9 +15,7 @@ const Rooms = (props) => {
       return (
         <ul>
             { props.rooms.map( r =>
-          <li>
-            {r.name}
-          </li>
+          <Room {...r} />
               )}
         </ul>
       )
@@ -26,8 +26,9 @@ const Rooms = (props) => {
   // if(!props.rooms) return null
   return (
     <>
+    <button onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? 'closeForm' : 'openForm'}</button>
+      {toggleForm ? <RoomForm addRoom={props.addRoom} toggle={setToggleForm} /> : ''}
       {listRooms()}
-      <RoomForm addRoom={props.addRoom}/>
     </>
   )
 }

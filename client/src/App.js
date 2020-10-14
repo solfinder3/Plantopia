@@ -11,6 +11,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 
 import Rooms from './components/rooms/Rooms';
 import Plants from './components/plants/Plants';
+import RoomShow from './components/rooms/RoomShow';
 
 const App = () => (
   <>
@@ -22,6 +23,7 @@ const App = () => (
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
           <Route exact path='/rooms' component={Rooms} />
+          <Route exact path='/rooms/:id' component={RoomShow} />
           <Route exact path='/plants' component={Plants} />
           <Route component={NoMatch} />
         </Switch>
