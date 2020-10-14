@@ -2,9 +2,17 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import {AuthConsumer} from '../../providers/AuthProvider'
 
+
 const RoomForm = (props) => {
   const [roomName, setRoomName] = useState("");
   const [sunAmount, setSunAmount] = useState("");
+
+  useEffect(() => {
+    if (props.room.id) {
+      setRoomName(props.room.name)
+      setSunAmount(props.room.sun_amount)
+    }
+  }, [])
 
   const handleRoomNameChange = (e) => {
     setRoomName(e.target.value);
@@ -16,7 +24,13 @@ const RoomForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addRoom({name: roomName, sun_amount: sunAmount, user_id: props.user.id})
+    if (props.room.id) {
+      props.updateRoom(props.room.id, {name: roomName, sun_amount: sunAmount, user_id: props.user.id})
+      props.toggleEdit()
+    } else {
+      props.addRoom({name: roomName, sun_amount: sunAmount, user_id: props.user.id})
+      props.toggle()
+    }
   }
 
   return (

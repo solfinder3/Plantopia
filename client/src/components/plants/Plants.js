@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { PlantsConsumer } from '../../providers/PlantsProvider';
+import { PlantConsumer } from '../../providers/PlantProvider';
+import PlantForm from './PlantForm';
 
 
 const Plants = (props) => {
@@ -12,7 +13,7 @@ const Plants = (props) => {
     if (props.plants.length !== 0) {
       return (
         <ul>
-          { props.plants.map(p =>
+          { props.plants.map( p =>
             <li>
               {p.name}
             </li>
@@ -27,12 +28,13 @@ const Plants = (props) => {
   return (
     <>
       {listPlants()}
+      <PlantForm addPlant={props.addPlant} />
     </>
   )
 }
 
 const ConnectedPlants = (props) => (
-  <PlantsConsumer>
+  <PlantConsumer>
     {
       value => (
         <Plants
@@ -41,7 +43,7 @@ const ConnectedPlants = (props) => (
         />
       )
     }
-  </PlantsConsumer>
+  </PlantConsumer>
 )
 
 export default ConnectedPlants;
