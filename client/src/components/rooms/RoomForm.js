@@ -8,7 +8,7 @@ const RoomForm = (props) => {
   const [sunAmount, setSunAmount] = useState("");
 
   useEffect(() => {
-    if (props.room.id) {
+    if (props.room) {
       setRoomName(props.room.name)
       setSunAmount(props.room.sun_amount)
     }
@@ -24,7 +24,7 @@ const RoomForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (props.room.id) {
+    if (props.room) {
       props.updateRoom(props.room.id, {name: roomName, sun_amount: sunAmount, user_id: props.user.id})
       props.toggleEdit()
     } else {

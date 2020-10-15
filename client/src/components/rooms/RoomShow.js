@@ -32,6 +32,7 @@ const RoomShow = (props) => {
         </>
         }
         <button onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Close Form' : 'Edit'}</button>
+        <button onClick={() => props.deleteRoom(props.room.id)}>Delete</button>
       </div>
     )
 }
