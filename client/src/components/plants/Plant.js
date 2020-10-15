@@ -1,16 +1,21 @@
 import React, {useState} from 'react';
 import { PlantConsumer } from '../../providers/PlantProvider';
+import { Link } from 'react-router-dom';
 
-const Plant = ({location}) => (
-  <PlantConsumer>
-    { value => (
+const Plant = (props) => (
+
     <ul>
-      <li>{location.state.name}</li>
-      <li>{location.state.type}</li>
-      <li>{location.state.colors}</li>
+      <li>
+      <Link to={`/plants/${props.id}`}>{props.name}</Link>
+      <br />
+      {props.species}
+      <br />
+      {props.colors}
+      <br />
+      </li>
     </ul>
-    )}
-  </PlantConsumer>
-)
+    )
+ 
+
 
 export default Plant;

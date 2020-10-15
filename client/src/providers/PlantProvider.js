@@ -17,6 +17,8 @@ const PlantProvider = ({children}) => {
     .catch(err => console.log(err))
   }
 
+  // const getPlant = 
+
   const addPlant = (room_id, plant) => {
     axios.post(`/api/rooms/${room_id}/plants`, {plant})
     .then( res => {
