@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { PlantConsumer } from '../../providers/PlantProvider';
 import PlantForm from './PlantForm';
-
+import Plant from './Plant'
 
 const Plants = (props) => {
+  const [toggleForm, setToggleForm] = useState(false)
+
 
   useEffect(() => {
-    props.getPlants()
+    props.getPlants(props.room_id)
   }, [])
 
   const listPlants = () => {
@@ -14,9 +16,7 @@ const Plants = (props) => {
       return (
         <ul>
           { props.plants.map( p =>
-            <li>
-              {p.name}
-            </li>
+            <Plant {...p} />
           )}
         </ul>
       )
@@ -27,8 +27,14 @@ const Plants = (props) => {
   // if(!props.rooms) return null
   return (
     <>
+    <button onClick={() => setToggleForm(!toggleForm)}>{ toggleForm ? 'Exit' : 'Open Form' }</button>
+      {
+        toggleForm ? 
+        <PlantForm addPlant={props.addPlant} room_id={props.room_id} />
+        :
+        <></>
+      }
       {listPlants()}
-      <PlantForm addPlant={props.addPlant} />
     </>
   )
 }

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { RoomConsumer } from '../../providers/RoomProvider';
 import RoomForm from './RoomForm';
+import Plants from '../plants/Plants';
 
 const RoomShow = (props) => {
   const [toggleEdit, setToggleEdit] = useState(false)
@@ -33,6 +34,10 @@ const RoomShow = (props) => {
         }
         <button onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Close Form' : 'Edit'}</button>
         <button onClick={() => props.deleteRoom(props.room.id)}>Delete</button>
+        <div>
+          <h1>plants</h1>
+          <Plants room_id={props.room.id} />
+        </div>
       </div>
     )
 }
