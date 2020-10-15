@@ -11,4 +11,17 @@ const Room = (props) => {
     )
 }
 
-export default Room;
+const ConnectedRoom = (props) => (
+  <RoomConsumer>
+    {
+      value => (
+        <Room 
+          {...props}
+          {...value}
+        />
+      )
+    }
+  </RoomConsumer>
+)
+
+export default ConnectedRoom;
