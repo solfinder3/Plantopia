@@ -5,6 +5,10 @@ class Api::PlantsController < ApplicationController
     render json: @room.plants
   end
 
+  def show  
+    render json: @room.plants.find(params[:id])
+  end
+
   def create
     plant = @room.plants.new(plant_params)
     if plant.save
@@ -16,7 +20,7 @@ class Api::PlantsController < ApplicationController
 
   def update
     plant = @room.plants.find(params[:id])
-    if plant.update
+    if plant.update(plant_params)
       render json: plant
     else
       render json: { errors: plant.errors }, status: :unprocessable_entity

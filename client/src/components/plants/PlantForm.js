@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const PlantForm = (props) => {
   const [name, setName] = useState("");
   const [species, setSpecies] = useState("");
   const [colors, setColors] = useState("");
+
+  useEffect (() => {
+    if (props.plant) {
+      setName(props.plant.name)
+      setSpecies(props.plant.species)
+      setColors(props.plant.colors)
+    }
+  }, [])
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -19,7 +27,13 @@ const PlantForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addPlant(props.room_id, {name, species, colors})
+    if (props.plant) {
+      props.updatePlant(props.plant.room_id, props.plant.id, {name, species, colors})
+      props.toggleEdit()
+    } else {
+      props.addPlant(props.room_id, {name, species, colors})
+      props.toggleForm()
+    }
   }
 
   return (
