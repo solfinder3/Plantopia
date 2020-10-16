@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resources :rooms do
       resources :plants
     end
+
+    resources :plants do
+      resources :routines
+    end
     
   end
 
