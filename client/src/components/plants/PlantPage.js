@@ -1,6 +1,7 @@
 import React, { useEffect, useState }from 'react';
 import { PlantConsumer } from '../../providers/PlantProvider';
 import PlantForm from './PlantForm'
+import Routines from '../routines/Routines';
 
 const PlantPage = (props) => {
   const [toggleEdit, setToggleEdit] = useState(false)
@@ -33,6 +34,10 @@ const PlantPage = (props) => {
       }
       <button onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Close Form' : 'Edit'}</button>
       <button onClick={() => props.deletePlant(props.plant.room_id, props.plant.id)}>Delete</button>
+      <div>
+        <h1>routines</h1>
+        <Routines plant_id={props.plant.id} />
+      </div>
     </div>
   )
  
