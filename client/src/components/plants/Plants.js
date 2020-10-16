@@ -30,7 +30,7 @@ const Plants = (props) => {
     <button onClick={() => setToggleForm(!toggleForm)}>{ toggleForm ? 'Exit' : 'Open Form' }</button>
       {
         toggleForm ? 
-        <PlantForm addPlant={props.addPlant} room_id={props.room_id} />
+        <PlantForm addPlant={props.addPlant} room_id={props.room_id} toggleForm={setToggleForm} />
         :
         <></>
       }

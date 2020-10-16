@@ -6,7 +6,7 @@ const Plant = (props) => (
 
     <ul>
       <li>
-      <Link to={`/plants/${props.id}`}>{props.name}</Link>
+      <Link to={{pathname:`/rooms/${props.room_id}/plants/${props.id}`, state: {room_id: props.room_id}}}>{props.name}</Link>
       <br />
       {props.species}
       <br />

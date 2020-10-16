@@ -17,7 +17,13 @@ const PlantProvider = ({children}) => {
     .catch(err => console.log(err))
   }
 
-  // const getPlant = 
+  const getPlant = (room_id, id) => {
+    axios.get(`/api/rooms/${room_id}/plants/${id}`)
+    .then( res => {
+      setPlant( res.data )
+    })
+    .catch(err => console.log(err))
+  }
 
   const addPlant = (room_id, plant) => {
     axios.post(`/api/rooms/${room_id}/plants`, {plant})
@@ -30,13 +36,7 @@ const PlantProvider = ({children}) => {
   const updatePlant = (room_id, id, plant) => {
     axios.put(`/api/rooms/${room_id}/plants/${id}`, {plant})
     .then( res => {
-      const updatedPlants = plants.map( p => {
-        if (p.id === id) {
-          return res.data
-        }
-        return p
-      })
-      setPlants(updatedPlants)
+      setPlant( res.data )
     })
     .catch(err => console.log(err))
   }
@@ -45,7 +45,7 @@ const PlantProvider = ({children}) => {
     axios.delete(`/api/rooms/${room_id}/plants/${id}`)
     .then( res => {
       setPlants(plants.filter(p => p.id !== id))
-      alert(res.data.message)
+      window.location.href=`/rooms/${room_id}`
     })
     .catch(err => console.log(err))
   }
@@ -55,6 +55,7 @@ const PlantProvider = ({children}) => {
       plants: plants,
       plant: plant,
       getPlants: getPlants,
+      getPlant: getPlant,
       addPlant: addPlant,
       updatePlant: updatePlant,
       deletePlant: deletePlant
@@ -63,6 +64,6 @@ const PlantProvider = ({children}) => {
     </PlantContext.Provider>
   )
 
-} 
+}
 
 export default PlantProvider;
