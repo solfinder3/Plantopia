@@ -29,7 +29,7 @@ class Api::PlantsController < ApplicationController
 
   def destroy
     @room.plants.find(params[:id]).destroy
-    render json: { message: 'Comment Deleted'}
+    render json: { message: 'Plant Deleted'}
   end
 
   private

@@ -6,15 +6,16 @@ class Api::RoutinesController < ApplicationController
   end
 
   def create
-    routine = @plant.routines(routine_params)
+    routine = @plant.routines.new(routine_params)
     if routine.save
       render json: routine
     else
       render json: { errors: plant.errors }, status: :unprocessable_entity
+    end
   end
 
   def update
-    routine = @plant.routines(params[:id])
+    routine = @plant.routines.find(params[:id])
     if routine.update(routine_params)
       render json: routine
     else
@@ -23,15 +24,14 @@ class Api::RoutinesController < ApplicationController
   end
 
   def destroy
-    @plant.routine.find(params[:id]).destroy
-    render json: { message: 'Comment Deleted'}
-
+    @plant.routines.find(params[:id]).destroy
+    render json: { message: 'Routine Deleted'}
   end
 
   private
 
   def set_plant
-    @plant = @plant.find(params[:plant_id])
+    @plant = Plant.find(params[:plant_id])
   end
 
   def routine_params
