@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_16_020119) do
+ActiveRecord::Schema.define(version: 2020_10_16_051646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,22 @@ ActiveRecord::Schema.define(version: 2020_10_16_020119) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_rooms_on_user_id"
+  end
+
+  create_table "routines", force: :cascade do |t|
+    t.integer "time"
+    t.string "action"
+    t.boolean "sunday"
+    t.boolean "monday"
+    t.boolean "tuesday"
+    t.boolean "wednesday"
+    t.boolean "thursday"
+    t.boolean "friday"
+    t.boolean "saturday"
+    t.bigint "plant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["plant_id"], name: "index_routines_on_plant_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,4 +83,5 @@ ActiveRecord::Schema.define(version: 2020_10_16_020119) do
 
   add_foreign_key "plants", "rooms"
   add_foreign_key "rooms", "users"
+  add_foreign_key "routines", "plants"
 end
