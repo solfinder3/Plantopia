@@ -63,7 +63,7 @@ const PlantForm = (props) => {
           onChange={handleColorsChange}
           value={colors}
         />
-        <button type='submit'>Submit Your Plant</button>
+        <button type='submit'>Submit</button>
       </form>
     </>
   )

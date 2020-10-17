@@ -1,30 +1,72 @@
-import React from 'react';
+import React, {useState, useEffect}  from 'react';
 import { RoutineConsumer } from '../../providers/RoutineProvider';
+import RoutineForm from './RoutineForm';
 
-const Routine = (props) => (
+const Routine = (props) => {
+  const [toggleEdit, setToggleEdit] = useState(false)
+
+  useEffect (() => {
+    props.getRoutines(props.plant_id, props.id)
+  }, [props.routine])
+
+  const editView = () => {
+    return (
+      <>
+        <RoutineForm 
+        {...props}
+        toggleEdit={setToggleEdit}
+        />
+      </>
+    )
+  }
+
+  if (!props.routines) return null
+  return (
     <>
+     
       <ul>
         <li>
+        {toggleEdit ? editView() :
+        <>
           Time: {props.time}
           <br />
           Action: {props.action}
           <br />
-          {props.sunday ? 'Sunday: true' : 'Sunday: false'}
+          Sunday: {props.sunday ? 'true' : 'false'}
           <br />
-          {props.monday ? 'Monday: true' : 'Monday: false'}
+          Monday: {props.monday ? 'true' : 'false'}
           <br />
-          {props.tuesday ? 'Tuesday: true' : 'Tuesday: false'}
+          Tuesday: {props.tuesday ? 'true' : 'false'}
           <br />
-          {props.wednesday ? 'Wednesday: true' : 'Wednesday: false'}
+          Wednesday: {props.wednesday ? 'true' : 'false'}
           <br />
-          {props.thursday ? 'Thursday: true' : 'Thursday: false'}
+          Thursday: {props.thursday ? 'true' : 'false'}
           <br />
-          {props.friday ? 'Friday: true' : 'Friday: false'}
+          Friday: {props.friday ? 'true' : 'false'}
           <br />
-          {props.saturday ? 'Saturday: true' : 'Saturday: false'}
+          Saturday: {props.saturday ? 'true' : 'false'}
+          <br />
+        </>
+        }
+          <button onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Close Form' : 'Edit'}</button>
+          <button onClick={() => props.deleteRoutine(props.plant_id, props.id)}>Delete</button>
         </li>
       </ul>
     </>
+  )
+}
+
+const ConnectedRoutinePage = (props) => (
+  <RoutineConsumer>
+    {
+      value => (
+        <Routine 
+          {...props}
+          {...value}
+        />
+      )
+    }
+  </RoutineConsumer>
 )
 
-export default Routine;
+export default ConnectedRoutinePage;
