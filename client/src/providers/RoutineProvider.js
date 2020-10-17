@@ -41,11 +41,11 @@ const RoutineProvider = ({children}) => {
     .catch(err => console.log(err))
   }
 
-  const deleteRoutine = (plant_id, id, room_id) => {
+  const deleteRoutine = (plant_id, id) => {
     axios.delete(`/api/plants/${plant_id}/routines/${id}`)
     .then( res => {
       setRoutines(routines.filter(r => r.id !== id))
-      window.location.href=`/rooms/${room_id}/plants/${id}`
+
     })
     .catch(err => console.log(err))
   }

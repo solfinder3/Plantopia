@@ -12,16 +12,16 @@ const RoutineForm = (props) => {
   const [saturday, setSaturday] = useState(false)
 
   useEffect (() => {
-    if (props.routine) {
-      setTime(props.routine.time)
-      setAction(props.routine.action)
-      setSunday(props.routine.sunday)
-      setMonday(props.routine.monday)
-      setTuesday(props.routine.tuesday)
-      setWednesday(props.routine.wednesday)
-      setThursday(props.routine.thursday)
-      setFriday(props.routine.friday)
-      setSaturday(props.routine.saturday)
+    if (props.id) {
+      setTime(props.time)
+      setAction(props.action)
+      setSunday(props.sunday)
+      setMonday(props.monday)
+      setTuesday(props.tuesday)
+      setWednesday(props.wednesday)
+      setThursday(props.thursday)
+      setFriday(props.friday)
+      setSaturday(props.saturday)
     }
   }, [])
 
@@ -34,37 +34,37 @@ const RoutineForm = (props) => {
   }
 
   const handleSundayChange = (e) => {
-    setSunday(e.target.value);
+    setSunday(!sunday);
   }
 
   const handleMondayChange = (e) => {
-    setMonday(e.target.value);
+    setMonday(!monday);
   }
 
   const handleTuesdayChange = (e) => {
-    setTuesday(e.target.value);
+    setTuesday(!tuesday);
   }
 
   const handleWednesdayChange = (e) => {
-    setWednesday(e.target.value)
+    setWednesday(!wednesday)
   }
 
   const handleThursdayChange = (e) => {
-    setThursday(e.target.value);
+    setThursday(!thursday);
   }
 
   const handleFridayChange = (e) => {
-    setFriday(e.target.value);
+    setFriday(!friday);
   }
 
   const handleSaturdayChange = (e) => {
-    setSaturday(e.target.value);
+    setSaturday(!saturday);
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (props.routine) {
-     props.updateRoutine(props.routines.plant_id, props.routines.id, {time, action, sunday, monday, tuesday, wednesday, thursday, friday, saturday})
+    if (props.routines) {
+     props.updateRoutine(props.plant_id, props.id, {time, action, sunday, monday, tuesday, wednesday, thursday, friday, saturday})
      props.toggleEdit()
     } else {
       props.addRoutine(props.plant_id, {time, action, sunday, monday, tuesday, wednesday, thursday, friday, saturday})
@@ -95,56 +95,63 @@ const RoutineForm = (props) => {
         <input 
           type='checkbox'
           name='sunday'
-          value={!sunday}
+          value={sunday}
           onChange={handleSundayChange}
+          checked={sunday}
         
         />
         <label>Monday</label>
         <input 
           type='checkbox'
           name='monday'
-          value={!monday}
+          value={monday}
           onChange={handleMondayChange}
+          checked={monday}
          
         />
         <label>Tuesday</label>
         <input 
           type='checkbox'
           name='tuesday'
-          value={!tuesday}
+          value={tuesday}
           onChange={handleTuesdayChange}
+          checked={tuesday}
        
         />
         <label>Wednesday</label>
         <input 
           type='checkbox'
           name='wednesday'
-          value={!wednesday}
+          value={wednesday}
           onChange={handleWednesdayChange}
+          checked={wednesday}
          
         />
         <label>Thursday</label>
         <input 
           type='checkbox'
           name='thursday'
-          value={!thursday}
+          value={thursday}
           onChange={handleThursdayChange}
+          checked={thursday}
        
         />
         <label>Friday</label>
         <input 
           type='checkbox'
           name='friday'
-          value={!friday}
+          value={friday}
           onChange={handleFridayChange}
+          checked={friday}
        
         />
         <label>Saturday</label>
         <input 
           type='checkbox'
           name='saturday'
-          value={!saturday}
+          value={saturday}
           onChange={handleSaturdayChange}   
+          checked={saturday}
          
         />
         <button type='submit'>submit</button>
