@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from react;
-import { SpecsConsumer } from '../../providers/SpecsProvider';
+import React, {useState, useEffect} from 'react';
+import { SpecConsumer } from '../../providers/SpecProvider';
+import SpecForm from './SpecForm';
 
-const Specs = (props) => {
+const Spec = (props) => {
   const [toggleEdit, setToggleEdit] = useState(false)
 
   useEffect(() => {
@@ -11,7 +12,7 @@ const Specs = (props) => {
   const editView = () => {
     return (
       <>
-        <SpecsForm
+        <SpecForm
           {...props}
           toggleEdit={setToggleEdit}
         />
@@ -36,17 +37,17 @@ const Specs = (props) => {
   )
 }
 
-const ConnectedSpecs = (props) => (
-  <SpecsConsumer>
+const ConnectedSpecsPage = (props) => (
+  <SpecConsumer>
     {
       value => (
-        <Specs
+        <Spec
           {...props}
           {...value}
         />
       )
     }
-  </SpecsConsumer>
+  </SpecConsumer>
 )
 
-export default ConnectedSpecs;
+export default ConnectedSpecsPage;

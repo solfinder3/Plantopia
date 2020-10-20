@@ -11,7 +11,7 @@ const SpecForm = (props) => {
   const [fullSize, setFullSize] = useState("");
   const [planting, setPlanting] = useState("");
   const [annual, setAnnual] = useState("");
-  const [perennial, setPerennial] = useState("");
+  const [perannual, setPerannual] = useState("");
   const [plantGrowth, setPlantGrowth] = useState("");
   const [prune, setPrune] = useState("");
   const [repot, setRepot] = useState("");
@@ -29,7 +29,7 @@ const SpecForm = (props) => {
       setFullSize(props.spec.fullSize)
       setPlantGrowth(props.spec.plantGrowth)
       setAnnual(props.spec.annual)
-      setPerennial(props.spec.perennial)
+      setPerannual(props.spec.perannual)
       setPlanting(props.spec.planting)
       setPrune(props.spec.prune)
       setRepot(props.spec.repot)
@@ -72,8 +72,8 @@ const SpecForm = (props) => {
   const handleAnnualChange = (e) => {
     setAnnual(e.target.value);
   }
-  const handlePerennialChange = (e) => {
-    setPerennial(e.target.value);
+  const handlePerannualChange = (e) => {
+    setPerannual(e.target.value);
   }
 
   const handlePlantGrowthChange = (e) => {
@@ -171,7 +171,7 @@ const SpecForm = (props) => {
           name="full size"
           required
           onChange={handleFullSizeChange}
-          value={fullsize}
+          value={fullSize}
         />
         <input
           label="planting"
@@ -194,8 +194,8 @@ const SpecForm = (props) => {
           placeholder="plant in spring"
           name="perannual"
           required
-          onChange={handlePerennialChange}
-          value={perennial}
+          onChange={handlePerannualChange}
+          value={perannual}
         />
         <input
           label="plant growth"

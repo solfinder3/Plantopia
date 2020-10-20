@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { SpecConsumer } from '../../providers/SpecsProvider';
-import ConnectedSpecs from './Spec';
+import { SpecConsumer } from '../../providers/SpecProvider';
+import Spec from './Spec';
 import SpecForm from './SpecForm';
 
-const Secs = (props) => {
+const Specs = (props) => {
   const [toggleForm, setToggleForm] = useState(false)
 
   useEffect(() => {
-    props.getSpecs(props.sec_id)
+    props.getSpecs(props.plant_id)
   }, [])
 
   const listSpecs = () => {
@@ -15,7 +15,7 @@ const Secs = (props) => {
       return (
         <ul>
           { props.specs.map(s =>
-            <Secs {...s} />
+            <Spec {...s} />
           )}
         </ul>
       )
@@ -26,7 +26,7 @@ const Secs = (props) => {
 
   return (
     <>
-      <button onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? 'Exit' : 'Open Form'}</button>
+      <button onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? 'Exit' : 'Open Secs'}</button>
       {
         toggleForm ?
           <SpecForm addSpec={props.addSpec} spec_id={props.spec_id} toggleForm={setToggleForm} />
