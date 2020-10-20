@@ -99,7 +99,7 @@ const SpecForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (props.spec) {
+    if (props.specs) {
       props.updateSpec(props.plant_id, props.id, { 
         water, ferilizer, sunlight, temperature, humidity, soil, fullSize, 
         planting, annual, perannual, plantGrowth, prune, repot, indoor, outdoor, pests

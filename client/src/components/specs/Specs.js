@@ -14,7 +14,7 @@ const Specs = (props) => {
     if (props.specs.length !== 0) {
       return (
         <ul>
-          { props.specs.map(s =>
+          { props.specs.map( s =>
             <Spec {...s} />
           )}
         </ul>
