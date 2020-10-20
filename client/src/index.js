@@ -10,6 +10,7 @@ import AuthProvider from './providers/AuthProvider';
 import RoomProvider from './providers/RoomProvider';
 import PlantProvider from './providers/PlantProvider';
 import RoutineProvider from './providers/RoutineProvider';
+import SpecProvider from './providers/SpecProvider';
 
 initMiddleware();
 
@@ -18,11 +19,13 @@ ReactDOM.render(
     <AuthProvider>
       <RoomProvider>
         <PlantProvider>
-          <RoutineProvider>
-            <BrowserRouter>
+          <SpecProvider>
+            <RoutineProvider>
+              <BrowserRouter>
               <App />
-            </BrowserRouter>
-          </RoutineProvider>
+              </BrowserRouter>
+            </RoutineProvider>
+          </SpecProvider>
         </PlantProvider>
       </RoomProvider>
     </AuthProvider>

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-export const SpecsContext = React.createContext();
+export const SpecContext = React.createContext();
 
 export const SpecConsumer = SpecContext.Consumer;
 
@@ -9,10 +9,10 @@ const SpecProvider = ({children}) => {
   const [spec, setSpec] = useState()
   const [specs, setSpecs] = useState([])
 
-  const getSpecs = (room_id) => {
+  const getSpecs = (plant_id) => {
     axios.get(`/api/plants/${plant_id}/specs`)
     .then( res => {
-      setRoutines( res.data )
+      setSpecs( res.data )
     })
     .catch(err => console.log(err))
   }
@@ -44,7 +44,7 @@ const SpecProvider = ({children}) => {
   const deleteSpec = (plant_id, id) => {
     axios.delete(`/api/plants/${plant_id}/specs/${id}`)
     .then( res => {
-      setSpecs(specs.filter(r => r.id !== id))
+      setSpecs(specs.filter(s => s.id !== id))
 
     })
     .catch(err => console.log(err))
