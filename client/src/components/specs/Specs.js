@@ -26,10 +26,10 @@ const Specs = (props) => {
 
   return (
     <>
-      <button onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? 'Exit' : 'Open Secs'}</button>
+      <button onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? 'Exit' : 'Edit plant specs'}</button>
       {
         toggleForm ?
-          <SpecForm addSpec={props.addSpec} spec_id={props.spec_id} toggleForm={setToggleForm} />
+          <SpecForm addSpec={props.addSpec} plant_id={props.plant_id} toggleForm={setToggleForm} />
           :
           <></>
       }

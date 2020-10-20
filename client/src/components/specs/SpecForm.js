@@ -100,13 +100,13 @@ const SpecForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (props.spec) {
-      props.updateSpecs(props.plant.room_id, props.plant.id, { 
+      props.updateSpec(props.plant_id, props.id, { 
         water, ferilizer, sunlight, temperature, humidity, soil, fullSize, 
         planting, annual, perannual, plantGrowth, prune, repot, indoor, outdoor, pests
       })
       props.toggleEdit()
     } else {
-      props.addSpecs(props.room_id, {
+      props.addSpec(props.plant_id, {
         water, ferilizer, sunlight, temperature, humidity, soil, fullSize,
         planting, annual, perannual, plantGrowth, prune, repot, indoor, outdoor, pests
       })
@@ -117,134 +117,135 @@ const SpecForm = (props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
+        <p>Add specs to your plant</p>
         <input
           label="water"
-          placeholder="water twice a day"
+          placeholder="Water twice a day"
           name="water"
-          required
           onChange={handleWaterChange}
           value={water}
         />
+        <p>Water</p>
         <input
           label="ferilizer"
           placeholder="once a month Ferilize"
           name="Ferilizer"
-          required
           onChange={handleFerilizerChange}
           value={ferilizer}
         />
+        <p>Ferilizer</p>
         <input
           label="sunlight"
           placeholder="more sunlight or shad?"
           name="sunlight"
-          required
           onChange={handleSunlightChange}
           value={sunlight}
         />
+        <p>Sunlight</p>
         <input
           label="temperature"
           placeholder="80℉-100℉, 20°C-37°C"
           name="temperature"
-          required
           onChange={handleTemperatureChange}
           value={temperature}
         />
+        <p>Temerature</p>
         <input
           label="humidity"
           placeholder="0%-100%"
           name="humidity"
-          required
           onChange={handleHumidityChange}
           value={humidity}
         />
+        <p>Humidity</p>
         <input
           label="soil"
-          placeholder="PH (nutual, alkaline, acid)"
+          placeholder="PH (nutrual, alkaline, acid)"
           name="soil"
-          required
           onChange={handleSoilChange}
           value={soil}
         />
+        <p>Soil/PH</p>
         <input
           label="full size"
           placeholder="Hight-10Ft, Width-90Ft, Length-2Ft"
           name="full size"
-          required
           onChange={handleFullSizeChange}
           value={fullSize}
         />
+        <p>Size of Plant</p>
         <input
           label="planting"
-          placeholder="Where/When/how"
+          placeholder="Plant where and how"
           name="planting"
-          required
           onChange={handlePlantingChange}
           value={planting}
         />
+        <p>Planting</p>
         <input
           label="annual"
           placeholder="plant every two years"
           name="annual"
-          required
           onChange={handleAnnualChange}
           value={annual}
         />
+        <p>Annual</p>
         <input
           label="perannual"
           placeholder="plant in spring"
           name="perannual"
-          required
           onChange={handlePerannualChange}
           value={perannual}
         />
+        <p>Perannual</p>
         <input
           label="plant growth"
-          placeholder="Your child's growth 0-100Ft tall"
+          placeholder="0-100Ft tall"
           name="plant growth"
-          required
           onChange={handlePlantGrowthChange}
           value={plantGrowth}
         />
+        <p>Plant Growth</p>
         <input
           label="prune"
-          placeholder="prune your plant child once a month"
+          placeholder="prune once a month"
           name="prune"
-          required
           onChange={handlePruneChange}
           value={prune}
         />
+        <p>Prune</p>
         <input
           label="re-pot"
           placeholder="Re-pot when 50Ft tall"
           name="Re-pot"
-          required
           onChange={handleRepotChange}
           value={repot}
         />
+        <p>Re-pot</p>
         <input
           label="indoor"
           placeholder="keep indoor all year"
           name="indoor"
-          required
           onChange={handleIndoorChange}
           value={indoor}
         />
+        <p>Indoor Plant</p>
         <input
           label="outdoor"
           placeholder="leave outdoor, kill the bugs!"
           name="outdoor"
-          required
           onChange={handleOutdoorChange}
           value={outdoor}
         />
+        <p>Outdoor Plant</p>
         <input
           label="pests"
-          placeholder="birds, squash bugs, caterpillars"
+          placeholder="Squash Bugs, caterpillars"
           name="pests"
-          required
           onChange={handlePestsChange}
           value={pests}
         />
+        <p>Buggers</p>
         <button type='submit'>Submit</button>
       </form>
     </>
