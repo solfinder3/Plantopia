@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   namespace :api do
 
+    resources :users, only: :update
+
     resources :rooms do
       resources :plants
     end
