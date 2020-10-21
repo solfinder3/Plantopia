@@ -18,7 +18,7 @@ const Profile = (props) => {
     setLastName(last_name)
     setEmail(email)
     setFile(file)
-  }, [])
+  }, [props.auth.user])
 
  const handleFileChange = (e) => {
    setFile(e.target.value)

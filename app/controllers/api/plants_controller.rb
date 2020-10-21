@@ -11,6 +11,21 @@ class Api::PlantsController < ApplicationController
 
   def create
     plant = @room.plants.new(plant_params)
+    # plant.name = params[:name] ? params[:name] : plant.name
+    # plant.species = params[:species] ? params[:species] : plant.species
+    # plant.colors = params[:colors] ? params[:colors] : plant.colors
+
+    file = params[:file]
+
+    if file
+      begin
+        ext = File.extname(file.tempfile)
+        cloud_image = Cloudinary::Uploader.upload(file, public_id: file.original_filename, secure: true)
+        plant.image = cloud_image['secure_url']
+      # rescue => e
+      #   render json: { errors: e }, status: 422
+      end
+    end
     if plant.save
       render json: plant
     else
@@ -20,6 +35,21 @@ class Api::PlantsController < ApplicationController
 
   def update
     plant = @room.plants.find(params[:id])
+    plant.name = params[:name] ? params[:name] : plant.name
+    plant.species = params[:species] ? params[:species] : plant.species
+    plant.colors = params[:colors] ? params[:colors] : plant.colors
+
+    file = params[:file]
+
+    if file
+      begin
+        ext = File.extname(file.tempfile)
+        cloud_image = Cloudinary::Uploader.upload(file, public_id: file.original_filename, secure: true)
+        plant.image = cloud_image['secure_url']
+      # rescue => e
+      #   render json: { errors: e }, status: 422
+      end
+    end
     if plant.update(plant_params)
       render json: plant
     else
@@ -39,7 +69,7 @@ class Api::PlantsController < ApplicationController
   end
 
   def plant_params
-    params.require(:plant).permit(:name, :species, :colors)
+    params.require(:plant).permit(:name, :species, :colors, :image)
   end
 
 end

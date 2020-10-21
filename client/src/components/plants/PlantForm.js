@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import Dropzone from 'react-dropzone'
 
 const PlantForm = (props) => {
   const [name, setName] = useState("");
   const [species, setSpecies] = useState("");
   const [colors, setColors] = useState("");
+  const [file, setFile] = useState('');
 
   useEffect (() => {
     if (props.plant) {
       setName(props.plant.name)
       setSpecies(props.plant.species)
       setColors(props.plant.colors)
+      setFile(props.plant.file)
     }
   }, [])
 
@@ -25,20 +28,49 @@ const PlantForm = (props) => {
     setColors(e.target.value);
   }
 
+  const handleFileChange = (e) => {
+    setFile(e.target.value)
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (props.plant) {
-      props.updatePlant(props.plant.room_id, props.plant.id, {name, species, colors})
+      props.updatePlant(props.plant.room_id, props.plant.id, {name, species, colors, file})
       props.toggleEdit()
     } else {
-      props.addPlant(props.room_id, {name, species, colors})
+      props.addPlant(props.room_id, {name, species, colors, file})
       props.toggleForm()
     }
+  }
+
+  const onDrop = (files) => {
+    setFile(files[0])
   }
 
   return (
     <>
       <form onSubmit={handleSubmit}>
+        <Dropzone
+          onDrop={onDrop}
+          multiple={false}
+          onChange={handleFileChange}
+        >
+          {({ getRootProps, getInputProps, isDragActive }) => {
+            return (
+              <div
+                {...getRootProps()}
+                style={styles.dropzone}
+              >
+                <input {...getInputProps()} />
+                {
+                  isDragActive ?
+                    <p>Drop files here...</p> :
+                    <p>Try dropping some files here, or click to select files to upload.</p>
+                }
+              </div>
+            )
+          }}
+        </Dropzone>
         <input
           label="Name"
           placeholder="Plant Name"
@@ -68,4 +100,19 @@ const PlantForm = (props) => {
     </>
   )
 }
+
+const styles = {
+  dropzone: {
+    height: "150px",
+    width: "150px",
+    border: "1px dashed black",
+    borderRadius: "5px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "10px",
+  },
+}
+
+
 export default PlantForm;

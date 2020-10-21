@@ -26,10 +26,11 @@ const PlantPage = (props) => {
     <div>
       {toggleEdit ? editView() : 
       <>
+      <img src={props.plant.image || '/images/plant.svg'} />
+      <br />
         <p>{props.plant.name}</p>
         <p>{props.plant.species}</p>
         <p>{props.plant.colors}</p>
-        {/* <p>{props.plant.image}</p> */}
       </>
       }
       <button onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Close Form' : 'Edit'}</button>
