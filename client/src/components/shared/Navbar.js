@@ -14,7 +14,7 @@ const Navbar = (props) => {
       <div>
         <Link to='/'>Home</Link>
         <Link to='/rooms'>Rooms</Link>
-        <Link to='/plants'>Plants</Link>
+        <Link to='/profile'>Profile</Link>
         {/* <Link to='/'>Log Out</Link> */}
         <button onClick={ () => handleLogout(props.history)}>Log Out</button>
       </div>
