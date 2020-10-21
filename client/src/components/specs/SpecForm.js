@@ -8,11 +8,11 @@ const SpecForm = (props) => {
   const [temperature, setTemperature] = useState("");
   const [humidity, setHumidity] = useState("");
   const [soil, setSoil] = useState("");
-  const [fullSize, setFullSize] = useState("");
+  const [fullsize, setFullSize] = useState("");
   const [planting, setPlanting] = useState("");
   const [annual, setAnnual] = useState("");
   const [perannual, setPerannual] = useState("");
-  const [plantGrowth, setPlantGrowth] = useState("");
+  const [plantgrowth, setPlantGrowth] = useState("");
   const [prune, setPrune] = useState("");
   const [repot, setRepot] = useState("");
   const [indoor, setIndoor] = useState("");
@@ -20,14 +20,14 @@ const SpecForm = (props) => {
   const [pests, setPests] = useState("");
 
   useEffect(() => {
-    if (props.plant) {
+    if (props.id) {
       setWater(props.spec.water)
       setFerilizer(props.spec.ferilizer)
       setTemperature(props.spec.temperature)
       setHumidity(props.spec.humidity)
       setSoil(props.spec.soil)
-      setFullSize(props.spec.fullSize)
-      setPlantGrowth(props.spec.plantGrowth)
+      setFullSize(props.spec.fullsize)
+      setPlantGrowth(props.spec.plantgrowth)
       setAnnual(props.spec.annual)
       setPerannual(props.spec.perannual)
       setPlanting(props.spec.planting)
@@ -35,7 +35,7 @@ const SpecForm = (props) => {
       setRepot(props.spec.repot)
       setIndoor(props.spec.indoor)
       setOutdoor(props.spec.outdoor)
-      setPests(props.spec.Pests)
+      setPests(props.spec.pests)
     } 
   }, [])
 
@@ -100,15 +100,15 @@ const SpecForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (props.specs) {
-      props.updateSpec(props.plant_id, props.id, { 
-        water, ferilizer, sunlight, temperature, humidity, soil, fullSize, 
-        planting, annual, perannual, plantGrowth, prune, repot, indoor, outdoor, pests
+      props.updateSpec(props.spec.plant_id, props.id, { 
+        water: water, ferilizer: ferilizer, sunlight: sunlight, temperature: temperature, humidity: humidity, soil: soil, fullsize: fullsize, 
+        planting: planting, annual: annual, perannual: perannual, plantgrowth: plantgrowth, prune: prune, repot: repot, indoor: indoor, outdoor: outdoor, pests: pests
       })
       props.toggleEdit()
     } else {
       props.addSpec(props.plant_id, {
-        water, ferilizer, sunlight, temperature, humidity, soil, fullSize,
-        planting, annual, perannual, plantGrowth, prune, repot, indoor, outdoor, pests
+        water: water, ferilizer: ferilizer, sunlight: sunlight, temperature: temperature, humidity: humidity, soil: soil, fullsize: fullsize,
+        planting: planting, annual: annual, perannual: perannual, plantgrowth: plantgrowth, prune: prune, repot: repot, indoor: indoor, outdoor: outdoor, pests: pests
       })
       props.toggleForm()
     }
@@ -171,17 +171,17 @@ const SpecForm = (props) => {
           placeholder="Hight-10Ft, Width-90Ft, Length-2Ft"
           name="full size"
           onChange={handleFullSizeChange}
-          value={fullSize}
+          value={fullsize}
         />
         <p>Size of Plant</p>
         <input
           label="planting"
-          placeholder="Plant where and how"
+          placeholder="Date Planted"
           name="planting"
           onChange={handlePlantingChange}
           value={planting}
         />
-        <p>Planting</p>
+        <p>Date Planted</p>
         <input
           label="annual"
           placeholder="plant every two years"
@@ -203,7 +203,7 @@ const SpecForm = (props) => {
           placeholder="0-100Ft tall"
           name="plant growth"
           onChange={handlePlantGrowthChange}
-          value={plantGrowth}
+          value={plantgrowth}
         />
         <p>Plant Growth</p>
         <input
