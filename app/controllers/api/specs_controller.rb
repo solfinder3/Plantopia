@@ -1,31 +1,35 @@
 class Api::SpecsController < ApplicationController
-belongs_to :set_plant
+before_action :set_plant
 
 def index
   render json @plant.specs
 end
 
 def create
-  specs = @plant.specs.new(spec_params)
+  spec = @plant.specs.new(spec_params)
   if spec.save
     render json: spec
   else
-    render json: ( errors: plant.errors ), 
-    status: :unprocessable_entity
+    render json: { errors: spec.errors }, status: :unprocessable_entity
+  end
 end
 
 def update
-  specs = @plant.specs.find(params[:id])
+  spec = @plant.specs.find(params[:id])
   if spec.update(spec_params)
     render json: spec
   else
-    render json: ( errors: plant.errors ), 
-    status: :unprocessable_entity
+    render json: { errors: spec.errors }, status: :unprocessable_entity
+  end
 end
 
 def destroy
   @plant.specs.find(params[:id]).destroy
     render json: { message: 'Spec Deleted'}
+end
+
+def show
+  render json: @plant.specs.find(params[:id])
 end
 
 private
@@ -35,7 +39,7 @@ private
   end
 
   def spec_params
-    params.require(:specs).permit(:water, :ferilizer, :sunlight, :temperature, :humidity, :soil, :fullSize, 
-        :planting, :annual, :perannual, :plantGrowth, :prune, :repot, :indoor, :outdoor, :pests)
+    params.require(:spec).permit(:water, :ferilizer, :sunlight, :temperature, :humidity, :soil, :fullsize, 
+        :planting, :annual, :perannual, :plantgrowth, :prune, :repot, :indoor, :outdoor, :pests)
   end
 end

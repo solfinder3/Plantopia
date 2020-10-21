@@ -39,6 +39,7 @@ const PlantPage = (props) => {
       <div>
         <h1>routines</h1>
         <Routines plant_id={props.plant.id} />
+        <h2>Specs</h2>
         <Specs plant_id={props.plant.id} />
       </div>
     </div>

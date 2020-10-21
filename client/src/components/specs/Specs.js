@@ -8,7 +8,7 @@ const Specs = (props) => {
 
   useEffect(() => {
     props.getSpecs(props.plant_id)
-  }, [])
+  })
 
   const listSpecs = () => {
     if (props.specs.length !== 0) {
@@ -26,7 +26,7 @@ const Specs = (props) => {
 
   return (
     <>
-      <button onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? 'Exit' : 'Edit plant specs'}</button>
+      <button onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? 'Exit' : 'Add plant specs'}</button>
       {
         toggleForm ?
           <SpecForm addSpec={props.addSpec} plant_id={props.plant_id} toggleForm={setToggleForm} />

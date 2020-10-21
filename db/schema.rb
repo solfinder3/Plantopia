@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_20_002412) do
+ActiveRecord::Schema.define(version: 2020_10_21_015304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 2020_10_20_002412) do
     t.string "pests"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "plant_id", null: false
+    t.index ["plant_id"], name: "index_specs_on_plant_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -107,4 +109,5 @@ ActiveRecord::Schema.define(version: 2020_10_20_002412) do
   add_foreign_key "plants", "rooms"
   add_foreign_key "rooms", "users"
   add_foreign_key "routines", "plants"
+  add_foreign_key "specs", "plants"
 end
