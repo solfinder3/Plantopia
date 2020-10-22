@@ -10,14 +10,14 @@ class Api::PlantsController < ApplicationController
   end
 
   def create
-    plant = @room.plants.new(plant_params)
+    plant = @room.plants.new(name: params[:name], species: params[:species], colors: params[:colors])
+
     # plant.name = params[:name] ? params[:name] : plant.name
     # plant.species = params[:species] ? params[:species] : plant.species
     # plant.colors = params[:colors] ? params[:colors] : plant.colors
 
     file = params[:file]
-
-    if file
+    if file != ''
       begin
         ext = File.extname(file.tempfile)
         cloud_image = Cloudinary::Uploader.upload(file, public_id: file.original_filename, secure: true)
@@ -41,7 +41,7 @@ class Api::PlantsController < ApplicationController
 
     file = params[:file]
 
-    if file
+    if file != 'undefined'
       begin
         ext = File.extname(file.tempfile)
         cloud_image = Cloudinary::Uploader.upload(file, public_id: file.original_filename, secure: true)
@@ -50,7 +50,7 @@ class Api::PlantsController < ApplicationController
       #   render json: { errors: e }, status: 422
       end
     end
-    if plant.update(plant_params)
+    if plant.save
       render json: plant
     else
       render json: { errors: plant.errors }, status: :unprocessable_entity
