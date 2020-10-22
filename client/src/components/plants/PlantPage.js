@@ -2,6 +2,7 @@ import React, { useEffect, useState }from 'react';
 import { PlantConsumer } from '../../providers/PlantProvider';
 import PlantForm from './PlantForm'
 import Routines from '../routines/Routines';
+import Specs from '../specs/Specs'
 
 const PlantPage = (props) => {
   const [toggleEdit, setToggleEdit] = useState(false)
@@ -38,6 +39,8 @@ const PlantPage = (props) => {
       <div>
         <h1>routines</h1>
         <Routines plant_id={props.plant.id} />
+        <h2>Specs</h2>
+        <Specs plant_id={props.plant.id} />
       </div>
     </div>
   )

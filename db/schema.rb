@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_21_235150) do
+ActiveRecord::Schema.define(version: 2020_10_21_015304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,29 @@ ActiveRecord::Schema.define(version: 2020_10_21_235150) do
     t.index ["plant_id"], name: "index_routines_on_plant_id"
   end
 
+  create_table "specs", force: :cascade do |t|
+    t.string "water"
+    t.string "ferilizer"
+    t.integer "sunlight"
+    t.integer "temperature"
+    t.integer "humidity"
+    t.string "soil"
+    t.string "fullsize"
+    t.string "planting"
+    t.string "annual"
+    t.string "perannual"
+    t.integer "plantgrowth"
+    t.string "prune"
+    t.string "repot"
+    t.boolean "indoor"
+    t.boolean "outdoor"
+    t.string "pests"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "plant_id", null: false
+    t.index ["plant_id"], name: "index_specs_on_plant_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
@@ -86,4 +109,5 @@ ActiveRecord::Schema.define(version: 2020_10_21_235150) do
   add_foreign_key "plants", "rooms"
   add_foreign_key "rooms", "users"
   add_foreign_key "routines", "plants"
+  add_foreign_key "specs", "plants"
 end

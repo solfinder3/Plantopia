@@ -12,8 +12,7 @@ Rails.application.routes.draw do
 
     resources :plants do
       resources :routines
+        resources :specs
     end
-    
   end
-
 end
