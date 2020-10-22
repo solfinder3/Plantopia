@@ -21,21 +21,22 @@ const SpecForm = (props) => {
 
   useEffect(() => {
     if (props.id) {
-      setWater(props.spec.water)
-      setFerilizer(props.spec.ferilizer)
-      setTemperature(props.spec.temperature)
-      setHumidity(props.spec.humidity)
-      setSoil(props.spec.soil)
-      setFullSize(props.spec.fullsize)
-      setPlantGrowth(props.spec.plantgrowth)
-      setAnnual(props.spec.annual)
-      setPerannual(props.spec.perannual)
-      setPlanting(props.spec.planting)
-      setPrune(props.spec.prune)
-      setRepot(props.spec.repot)
-      setIndoor(props.spec.indoor)
-      setOutdoor(props.spec.outdoor)
-      setPests(props.spec.pests)
+      setWater(props.water)
+      setFerilizer(props.ferilizer)
+      setSunlight(props.sunlight)
+      setTemperature(props.temperature)
+      setHumidity(props.humidity)
+      setSoil(props.soil)
+      setFullSize(props.fullsize)
+      setPlantGrowth(props.plantgrowth)
+      setAnnual(props.annual)
+      setPerannual(props.perannual)
+      setPlanting(props.planting)
+      setPrune(props.prune)
+      setRepot(props.repot)
+      setIndoor(props.indoor)
+      setOutdoor(props.outdoor)
+      setPests(props.pests)
     } 
   }, [])
 
@@ -100,7 +101,7 @@ const SpecForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (props.specs) {
-      props.updateSpec(props.spec.plant_id, props.id, { 
+      props.updateSpec(props.plant_id, props.id, { 
         water: water, ferilizer: ferilizer, sunlight: sunlight, temperature: temperature, humidity: humidity, soil: soil, fullsize: fullsize, 
         planting: planting, annual: annual, perannual: perannual, plantgrowth: plantgrowth, prune: prune, repot: repot, indoor: indoor, outdoor: outdoor, pests: pests
       })
@@ -138,6 +139,7 @@ const SpecForm = (props) => {
           label="sunlight"
           placeholder="more sunlight or shad?"
           name="sunlight"
+          type="number"
           onChange={handleSunlightChange}
           value={sunlight}
         />
@@ -146,6 +148,7 @@ const SpecForm = (props) => {
           label="temperature"
           placeholder="80℉-100℉, 20°C-37°C"
           name="temperature"
+          type="number"
           onChange={handleTemperatureChange}
           value={temperature}
         />

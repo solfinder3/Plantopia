@@ -8,14 +8,14 @@ const Specs = (props) => {
 
   useEffect(() => {
     props.getSpecs(props.plant_id)
-  })
+  }, [])
 
   const listSpecs = () => {
     if (props.specs.length !== 0) {
       return (
         <ul>
           { props.specs.map( s =>
-            <Spec {...s} />
+            <Spec {...s} updateSpec={props.updateSpec} deleteSpec={props.deleteSpec}/> 
           )}
         </ul>
       )

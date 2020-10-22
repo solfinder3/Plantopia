@@ -2,7 +2,7 @@ class Api::SpecsController < ApplicationController
 before_action :set_plant
 
 def index
-  render json @plant.specs
+  render json: @plant.specs
 end
 
 def create

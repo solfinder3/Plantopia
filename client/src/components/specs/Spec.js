@@ -14,7 +14,8 @@ const Spec = (props) => {
       <>
         <SpecForm
           {...props}
-          toggleEdit={setToggleEdit}
+          toggleEdit={setToggleEdit} 
+          updateSpec={props.updateSpec}
         />
       </>
     )
@@ -29,7 +30,7 @@ const Spec = (props) => {
             <>
               <p>Water Amount: {props.water}</p>
               <p>Ferilizer: {props.ferilizer}</p>
-              <p>Sunlight: {props.sunlight}</p>
+              <p>Sunlight: {props.sunlight }</p>
               <p>Termperature: {props.temperature}</p>
               <p>Humidity: {props.humidity}</p>
               <p>Soil: {props.soil}</p>
@@ -39,9 +40,10 @@ const Spec = (props) => {
               <p>Preannual: {props.perannual}</p>
               <p>Plant Growth: {props.plantgrowth}</p>
               <p>Re-Pot: {props.repot}</p>
-              <p>Indoor: {props.indoor}</p>
-              <p>Outdoor: {props.outdoor}</p>
+              <p>Indoor: {props.indoor ? "✓" : "✗"}</p>
+              <p>Outdoor: {props.outdoor ? "✓" : "✗"}</p>
               <p>Buggers: {props.pests}</p>
+          
             </>
           }
           <button onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Close Specs' : 'Edit'}</button>
