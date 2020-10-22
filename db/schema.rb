@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_21_235150) do
+ActiveRecord::Schema.define(version: 2020_10_22_021725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_10_21_235150) do
   end
 
   create_table "routines", force: :cascade do |t|
-    t.integer "time"
+    t.time "routine_time"
     t.string "action"
     t.boolean "sunday"
     t.boolean "monday"
