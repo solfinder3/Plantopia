@@ -17,6 +17,14 @@ const RoomProvider = ({children}) => {
     .catch(err => console.log(err))
   }
 
+  const getRoom = (id) => {
+    axios.get(`/api/rooms/${id}`)
+    .then( res => {
+      setRoom( res.data )
+    })
+    .catch(err => console.log(err))
+  }
+
   const addRoom = (room) => {
     axios.post(`/api/rooms`, {room})
     .then( res => {
@@ -28,13 +36,14 @@ const RoomProvider = ({children}) => {
   const updateRoom = (id, room) => {
     axios.put(`/api/rooms/${id}`, {room})
     .then( res => {
-      const updatedRooms = rooms.map( r => {
-        if (r.id === id) {
-          return res.data
-        }
-        return r
-      })
-      setRooms(updatedRooms)
+      setRoom(res.data)
+    //   const updatedRooms = rooms.map( r => {
+    //     if (r.id === id) {
+    //       return res.data
+    //     }
+    //     return r
+    //   })
+    //   setRooms(updatedRooms)
     })
     .catch(err => console.log(err))
   }
@@ -43,7 +52,8 @@ const RoomProvider = ({children}) => {
     axios.delete(`/api/rooms/${id}`)
     .then( res => {
       setRooms(rooms.filter(r => r.id !== id))
-      alert(res.data.message)
+      window.location.href='/rooms'
+      // alert(res.data.message)
     })
     .catch(err => console.log(err))
   }
@@ -55,6 +65,7 @@ const RoomProvider = ({children}) => {
       rooms: rooms,
       room: room,
       getRooms: getRooms,
+      getRoom: getRoom,
       addRoom: addRoom,
       updateRoom: updateRoom,
       deleteRoom: deleteRoom

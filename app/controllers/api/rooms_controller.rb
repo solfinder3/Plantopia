@@ -4,12 +4,16 @@ class Api::RoomsController < ApplicationController
     render json: Room.all
   end
 
+  def show
+    render json: Room.find(params[:id])
+  end
+
   def create
     room = Room.new(room_params)
     if room.save
       render json: room
     else
-      render json: { errors: post.errors }, status: :unprocessable_entity
+      render json: { errors: room.errors }, status: :unprocessable_entity
     end
   end
 
@@ -18,7 +22,7 @@ class Api::RoomsController < ApplicationController
     if room.update(room_params)
       render json: room
     else
-      render json: { errors: post.errors }, status: :unprocessable_entity
+      render json: { errors: room.errors }, status: :unprocessable_entity
     end
   end
 
@@ -29,6 +33,6 @@ class Api::RoomsController < ApplicationController
 
   private
     def room_params
-      params.requre(:rooms).permit(:name, :sun_amount)
+      params.require(:room).permit(:name, :sun_amount, :user_id)
     end
 end

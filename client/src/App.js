@@ -8,7 +8,12 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+
 import Rooms from './components/rooms/Rooms';
+import Plants from './components/plants/Plants';
+import RoomShow from './components/rooms/RoomShow';
+import PlantPage from './components/plants/PlantPage';
+import Profile from './components/profile/Profile';
 
 const App = () => (
   <>
@@ -20,6 +25,9 @@ const App = () => (
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
           <Route exact path='/rooms' component={Rooms} />
+          <Route exact path='/rooms/:id' component={RoomShow} />
+          <Route exact path='/rooms/:room_id/plants/:id' component={PlantPage} />
+          <Route exact path='/profile' component={Profile} />
           <Route component={NoMatch} />
         </Switch>
       </Container>
