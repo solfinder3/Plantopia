@@ -115,6 +115,7 @@ const SpecForm = (props) => {
     }
   }
 
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -239,6 +240,7 @@ const SpecForm = (props) => {
           name="outdoor"
           onChange={handleOutdoorChange}
           value={outdoor}
+          select="yes"
         />
         <p>Outdoor Plant</p>
         <input
@@ -247,6 +249,7 @@ const SpecForm = (props) => {
           name="pests"
           onChange={handlePestsChange}
           value={pests}
+          select="yes"
         />
         <p>Buggers</p>
         <button type='submit'>Submit</button>
