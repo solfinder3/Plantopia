@@ -28,6 +28,9 @@ const PlantProvider = ({children}) => {
   const addPlant = (room_id, plant) => {
     let data = new FormData();
     data.append('file', plant.file);
+    data.append('name', plant.name);
+    data.append('species', plant.species);
+    data.append('colors', plant.colors);
     axios.post(`/api/rooms/${room_id}/plants?name=${plant.name}&species=${plant.species}&colors=${plant.colors}`, data)
     .then( res => {
       setPlants([...plants, res.data ])
@@ -36,8 +39,10 @@ const PlantProvider = ({children}) => {
   }
 
   const updatePlant = (room_id, id, plant) => {
+    debugger
     let data = new FormData();
     data.append('file', plant.file);
+
     axios.put(`/api/rooms/${room_id}/plants/${id}?name=${plant.name}&species=${plant.species}&colors=${plant.colors}`, data)
     .then( res => {
       setPlant( res.data )
