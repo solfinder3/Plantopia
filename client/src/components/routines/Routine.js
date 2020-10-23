@@ -28,7 +28,7 @@ const Routine = (props) => {
         <li>
         {toggleEdit ? editView() :
         <>
-          Time: {props.time}
+          Time: {props.routine_time}
           <br />
           Action: {props.action}
           <br />

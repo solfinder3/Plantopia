@@ -35,6 +35,6 @@ class Api::RoutinesController < ApplicationController
   end
 
   def routine_params
-    params.require(:routine).permit(:time, :action, :sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday)
+    params.require(:routine).permit(:routine_time, :action, :sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday)
   end
 end

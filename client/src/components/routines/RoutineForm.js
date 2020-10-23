@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 const RoutineForm = (props) => {
-  const [time, setTime] = useState(0)
+  const [Time, setTime] = useState('')
   const [action, setAction] = useState('')
   const [sunday, setSunday] = useState(false)
   const [monday, setMonday] = useState(false)
@@ -13,7 +13,7 @@ const RoutineForm = (props) => {
 
   useEffect (() => {
     if (props.id) {
-      setTime(props.time)
+      setTime(props.routine_time)
       setAction(props.action)
       setSunday(props.sunday)
       setMonday(props.monday)
@@ -64,10 +64,10 @@ const RoutineForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (props.routines) {
-     props.updateRoutine(props.plant_id, props.id, {time, action, sunday, monday, tuesday, wednesday, thursday, friday, saturday})
+     props.updateRoutine(props.plant_id, props.id, {routine_time: Time, action, sunday, monday, tuesday, wednesday, thursday, friday, saturday})
      props.toggleEdit()
     } else {
-      props.addRoutine(props.plant_id, {time, action, sunday, monday, tuesday, wednesday, thursday, friday, saturday})
+      props.addRoutine(props.plant_id, {routine_time: Time, action, sunday, monday, tuesday, wednesday, thursday, friday, saturday})
       props.toggleForm()
     }
   }
@@ -76,11 +76,12 @@ const RoutineForm = (props) => {
     <>
       <form onSubmit={handleSubmit}>
         <input 
-          name='time'
+          type='time'
+          name='Time'
           label='Time'
           placeholder='Time'
           required
-          value={time}
+          value={Time}
           onChange={handleTimeChange}
         />
         <input 
