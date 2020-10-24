@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Room = (props) => {
   return (
-    <div style={{border:'1px solid black'}}>
-      <Link to={`/rooms/${props.id}`}>{props.name}</Link>
-      <p>{props.sun_amount}</p>
-    </div>
+    <Link className = "link roomcard" to={`/rooms/${props.id}`}>
+      <p>{props.sun_amount} {props.name}</p>
+    </Link>
     )
 }
 
