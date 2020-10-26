@@ -2,6 +2,10 @@ import React, {useState, useEffect}  from 'react';
 import { RoutineConsumer } from '../../providers/RoutineProvider';
 import RoutineForm from './RoutineForm';
 
+import { Button } from '../../styles/SharedElements';
+
+import { RoutineWrap, Routines, ButtonWrap } from '../../styles/PlantPageElements'
+
 const Routine = (props) => {
   const [toggleEdit, setToggleEdit] = useState(false)
 
@@ -25,32 +29,33 @@ const Routine = (props) => {
     <>
      
       <ul>
-        <li>
+        
         {toggleEdit ? editView() :
-        <>
-          Time: {props.routine_time}
-          <br />
-          Action: {props.action}
-          <br />
-          Sunday: {props.sunday ? 'true' : 'false'}
-          <br />
-          Monday: {props.monday ? 'true' : 'false'}
-          <br />
-          Tuesday: {props.tuesday ? 'true' : 'false'}
-          <br />
-          Wednesday: {props.wednesday ? 'true' : 'false'}
-          <br />
-          Thursday: {props.thursday ? 'true' : 'false'}
-          <br />
-          Friday: {props.friday ? 'true' : 'false'}
-          <br />
+          <RoutineWrap>
+          <Routines>Time: {props.routine_time}</Routines>
+          <Routines>
+            Action: {props.action} -
+            Sunday: {props.sunday ? 'true' : 'false'}
+          </Routines>
+          <Routines>
+            Monday: {props.monday ? 'true' : 'false'} -
+            Tuesday: {props.tuesday ? 'true' : 'false'}
+          </Routines>
+          <Routines>
+            Wednesday: {props.wednesday ? 'true' : 'false'} -
+            Thursday: {props.thursday ? 'true' : 'false'} 
+          </Routines>
+          <Routines>
+          Friday: {props.friday ? 'true' : 'false'} -
           Saturday: {props.saturday ? 'true' : 'false'}
-          <br />
-        </>
+          </Routines>
+          </RoutineWrap>
         }
-          <button onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Close Form' : 'Edit'}</button>
-          <button onClick={() => props.deleteRoutine(props.plant_id, props.id)}>Delete</button>
-        </li>
+          {/* <ButtonWrap> */}
+            <Button onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Close' : 'Edit'}</Button>
+            <Button onClick={() => props.deleteRoutine(props.plant_id, props.id)}>Delete</Button>
+          {/* </ButtonWrap> */}
+    
       </ul>
     </>
   )

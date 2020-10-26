@@ -4,6 +4,10 @@ import PlantForm from './PlantForm'
 import Routines from '../routines/Routines';
 import Specs from '../specs/Specs'
 
+import { Button } from '../../styles/SharedElements';
+
+import { PlantWrap, PlantInfo, InfoWrap, Info, Image, ButtonWrap, InfoTitle } from '../../styles/PlantPageElements';
+
 const PlantPage = (props) => {
   const [toggleEdit, setToggleEdit] = useState(false)
 
@@ -24,25 +28,28 @@ const PlantPage = (props) => {
 
   if (!props.plant) return null
   return (
-    <div>
-      {toggleEdit ? editView() : 
-      <>
-      <img src={props.plant.image || '/images/plant.svg'} />
-      <br />
-        <p>{props.plant.name}</p>
-        <p>{props.plant.species}</p>
-        <p>{props.plant.colors}</p>
-      </>
-      }
-      <button onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Close Form' : 'Edit'}</button>
-      <button onClick={() => props.deletePlant(props.plant.room_id, props.plant.id)}>Delete</button>
-      <div>
-        <h1>routines</h1>
-        <Routines plant_id={props.plant.id} />
-        <h2>Specs</h2>
+    <PlantWrap>
+        <Image src={props.plant.image || '/images/plant.svg'} />
+      <PlantInfo>
+        {toggleEdit ? editView() : 
+        <>
+              <ButtonWrap>
+                <Button onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Close Form' : 'Edit'}</Button>
+                <Button onClick={() => props.deletePlant(props.plant.room_id, props.plant.id)}>Delete</Button>
+              </ButtonWrap>
+            <InfoTitle>{props.plant.name}</InfoTitle>
+            <Info>{props.plant.species}</Info>
+            {/* <Info>{props.plant.colors}</Info> */}
+          </>
+        }
+
+        <Info>Specs</Info>
         <Specs plant_id={props.plant.id} />
-      </div>
-    </div>
+        <Info>Routines</Info>
+        <Routines plant_id={props.plant.id} />
+      </PlantInfo>
+    
+    </PlantWrap>
   )
  
 }

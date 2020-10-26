@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
+font-family: 'Noto Sans TC', sans-serif;
 /* Adapt the colors based on primary prop */
-background: ${props => props.primary ? "#3A5A40" : "white"};
-color: ${props => props.primary ? "white" : "#3A5A40"};
+background: ${props => props.primary ? "white" : "#3A5A40"};
+color: ${props => props.primary ? "#3A5A40" : "white"};
 font-size: 1.3em;
-margin: 1em;
 padding: 0.25em 1em;
 border: 2px solid #3A5A40;
-border-radius: 3px;
-height: 3em;
+border-radius: 10px;
+height: 2em;
 width: 7em;
+margin-left: 10px;
+ &:hover {
+  color: ${props => props.primary ? "white" : "#3A5A40"};
+  background: ${props => props.primary ? "#3A5A40" : "white"};
+ }
 `;
 
 export const Header = styled.header `
