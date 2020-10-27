@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import {AuthConsumer} from '../../providers/AuthProvider';
 import {} from '../../styles/NavbarStyles';
+import '../../styles/Navbar.css'
 
 
 const Navbar = (props) => {
@@ -11,9 +12,9 @@ const Navbar = (props) => {
     const {user, handleLogout} = props.auth;
     if (user) {
       return (
-      <div>Hello {user.email}!
+      // <div>Hello {user.firstName}!
       
-      <div>
+      <div className="rightNav">
         <Link to='/'>Home</Link>
         <Link to='/rooms'>Rooms</Link>
         <Link to='/profile'>Profile</Link>
@@ -21,11 +22,11 @@ const Navbar = (props) => {
         <button onClick={ () => handleLogout(props.history)}>Log Out</button>
       </div>
       
-      </div>
+      // </div>
       )
     } else {
       return (
-        <div>No user
+        <div className="righNav">No user
 
         <Link to='/login'>Log In</Link>
         <Link to='/register'>Register</Link>
@@ -39,7 +40,7 @@ const Navbar = (props) => {
 // },[])
 
   return (
-    <div>
+    <div className="navContainer">
       {navAuth()}
     </div>
   )
