@@ -5,7 +5,7 @@ import SpecForm from './SpecForm';
 
 import { Button } from '../../styles/SharedElements';
 
-import { RoutineButton } from '../../styles/PlantPageElements';
+import { SpecButton } from '../../styles/PlantPageElements';
 
 const Specs = (props) => {
   const [toggleForm, setToggleForm] = useState(false)
@@ -30,7 +30,7 @@ const Specs = (props) => {
 
   return (
     <>
-      <RoutineButton onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? 'Exit' : 'Add specs'}</RoutineButton>
+      <SpecButton onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? 'Exit' : 'Add specs'}</SpecButton>
       {
         toggleForm ?
           <SpecForm addSpec={props.addSpec} plant_id={props.plant_id} toggleForm={setToggleForm} />

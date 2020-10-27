@@ -5,7 +5,7 @@ import RoutineForm from './RoutineForm';
 
 import { Button } from '../../styles/SharedElements';
 
-import { RoutineButton } from '../../styles/PlantPageElements';
+import { RoutineButton, Info, RoutinesWrap1 } from '../../styles/PlantPageElements';
 
 const Routines = (props) => {
   const [toggleForm, setToggleForm] = useState(false)
@@ -30,7 +30,7 @@ const Routines = (props) => {
 
   return (
     <>
-    <RoutineButton onClick={() => setToggleForm(!toggleForm)}>{ toggleForm ? 'Exit' : 'Add routine' }</RoutineButton>
+      <RoutineButton onClick={() => setToggleForm(!toggleForm)}>{ toggleForm ? 'Exit' : 'Add routine' }</RoutineButton>
       {
         toggleForm ? 
         <RoutineForm addRoutine={props.addRoutine} plant_id={props.plant_id} toggleForm={setToggleForm} />

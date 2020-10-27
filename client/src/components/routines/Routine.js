@@ -2,9 +2,7 @@ import React, {useState, useEffect}  from 'react';
 import { RoutineConsumer } from '../../providers/RoutineProvider';
 import RoutineForm from './RoutineForm';
 
-import { Button } from '../../styles/SharedElements';
-
-import { RoutineWrap, Routines, ButtonWrap } from '../../styles/PlantPageElements'
+import { RoutineWrap, Routines, ButtonWrap, Button } from '../../styles/PlantPageElements'
 
 const Routine = (props) => {
   const [toggleEdit, setToggleEdit] = useState(false)
@@ -27,7 +25,6 @@ const Routine = (props) => {
   if (!props.routines) return null
   return (
     <>
-     
       <ul>
         
         {toggleEdit ? editView() :
