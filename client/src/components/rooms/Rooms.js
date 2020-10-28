@@ -29,12 +29,11 @@ const Rooms = (props) => {
   // if(!props.rooms) return null
   return (
     <>
+      <floatdiv>Number of Rooms: {props.rooms.length}</floatdiv>
     <div className = "toprow">
-    <div>button</div>
-        <div>Your rooms</div>
-  <div>number of rooms: {props.rooms.length}</div>
+      <div>Your Rooms</div>
     </div>
-    <button onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? 'closeForm' : 'openForm'}</button>
+      <button onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? <div className='closeForm'>⍇</div>: <div className = 'openForm'>＋</div>}</button>
       {toggleForm ? <RoomForm addRoom={props.addRoom} toggle={setToggleForm} /> : ''}
       {listRooms()}
     </>

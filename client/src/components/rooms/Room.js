@@ -8,7 +8,8 @@ const Room = (props) => {
       <p>{props.sun_amount} {props.name}</p>
     </Link>
     )
-}
+  }
+
 
 const ConnectedRoom = (props) => (
   <RoomConsumer>

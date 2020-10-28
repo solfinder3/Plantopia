@@ -1,0 +1,84 @@
+
+/* room */
+.showroom {
+  color: #588157;
+  background-color: white;
+  font-size: 30px;
+  font-family: 'Noto Sans TC', sans-serif;
+  text-align: center;
+}
+
+.showroom > button {
+  color: #588157;
+background-color:#022C2E;
+border-radius: 500px;
+font-size: 20px;
+  width: 160px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.showroom > button:hover {
+ background-color: #A3B18A;
+}
+
+/* add picture of plant */
+.plantsExit {
+color: #588157;
+background-color:#022C2E;
+border-radius: 5px;
+font-family: 'Josefin Sans', sans-serif;
+}
+
+.plantpicture {
+  float: right;
+}
+
+.plantsPicture {
+  height: 33px;
+color: #588157;
+background-color:#022C2E;
+border-radius: 5px;
+font-size: 30px;
+font-family: 'Josefin Sans', sans-serif;
+}
+
+.plantsPicture:hover {
+  background-color: #A3B18A;
+}
+
+/* header "your plants" */
+h1 {
+font-family: 'Noto Sans TC', sans-serif;
+text-decoration-line: underline;
+color: #022C2E;
+font-size: 50px;
+}
+
+/* plant name, spieces, and color */
+.plantsmap {
+  text-align: left;
+}
+
+.plantstextlink {
+  text-decoration: none;
+  color: #588157;
+background-color:#022C2E;
+border-radius: 5px;
+width: 120px;
+font-family: 'Josefin Sans', sans-serif;
+}
+
+.plantstextlink:hover {
+  background-color: #A3B18A;
+}
+
+.plantsstyles {
+  line-height: 30px;
+}
+
+.plantsstyles > plants {
+  color: #A3B18A;
+  font-size: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+
