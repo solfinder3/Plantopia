@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_10_22_021725) do
   end
 
   create_table "routines", force: :cascade do |t|
-    t.integer "routine_time"
+    t.time "routine_time"
     t.string "action"
     t.boolean "sunday"
     t.boolean "monday"
