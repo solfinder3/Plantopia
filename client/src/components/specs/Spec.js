@@ -2,6 +2,10 @@ import React, {useState, useEffect} from 'react';
 import { SpecConsumer } from '../../providers/SpecProvider';
 import SpecForm from './SpecForm';
 
+import { Specs, Button } from '../../styles/PlantPageElements';
+
+// import { Button } from '../../styles/SharedElements'
+
 const Spec = (props) => {
   const [toggleEdit, setToggleEdit] = useState(false)
 
@@ -25,30 +29,38 @@ const Spec = (props) => {
   return (
     <>
       <ul>
-        <li>
           {toggleEdit ? editView() :
             <>
-              <p>Water Amount: {props.water}</p>
-              <p>Ferilizer: {props.ferilizer}</p>
-              <p>Sunlight: {props.sunlight }</p>
-              <p>Termperature: {props.temperature}</p>
-              <p>Humidity: {props.humidity}</p>
-              <p>Soil: {props.soil}</p>
-              <p>Size: {props.fullsize}</p>
-              <p>Date Planted: {props.planting}</p>
-              <p>Annual: {props.annual}</p>
-              <p>Preannual: {props.perannual}</p>
-              <p>Plant Growth: {props.plantgrowth}</p>
-              <p>Re-Pot: {props.repot}</p>
-              <p>Indoor: {props.indoor ? "✓" : "✗"}</p>
-              <p>Outdoor: {props.outdoor ? "✓" : "✗"}</p>
-              <p>Buggers: {props.pests}</p>
-          
+              <Specs>
+                Water Amount: {props.water} ||
+                Ferilizer: {props.ferilizer}
+              </Specs>
+              <Specs>
+                Sunlight: {props.sunlight } ||
+                Termperature: {props.temperature}
+              </Specs>
+              <Specs>
+                Humidity: {props.humidity} ||
+                Soil: {props.soil} ||
+                Size: {props.fullsize}
+              </Specs>
+              <Specs>
+                Date Planted: {props.planting} ||
+                Annual: {props.annual}
+              </Specs>
+              <Specs>
+                Preannual: {props.perannual} ||
+                Plant Growth: {props.plantgrowth}
+              </Specs>
+              <Specs>
+                Re-Pot: {props.repot} ||
+                Indoor: {props.indoor ? "✓" : "✗"} ||
+                Outdoor: {props.outdoor ? "✓" : "✗"}
+              </Specs>
             </>
           }
-          <button onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Close Specs' : 'Edit'}</button>
-          <button onClick={() => props.deleteSpec(props.plant_id, props.id)}>Delete</button>
-        </li>
+          <Button onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Close' : 'Edit'}</Button>
+          <Button onClick={() => props.deleteSpec(props.plant_id, props.id)}>Delete</Button>
       </ul>
     </>
   )

@@ -1,7 +1,4 @@
-.navbar {
-  background-color: black;
-  text-emphasis-color: red;
-}
-.hover {
-  color: blueviolet;
+* {
+  margin: 0;
+  padding: 0;
 }

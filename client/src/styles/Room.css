@@ -1,0 +1,74 @@
+
+
+.toprow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-align: center;
+  border: 2px solid white;
+  color: #3A5A40;
+  background-color: white;
+  font-size: 35px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+floatdiv {
+  font-size: 15px;
+  float: right;
+}
+
+.roomcont {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.roomcard {
+flex: 0 0 33.333333%;
+border:1px solid black;
+background-color:#3A5A40;
+padding: 30px;
+margin: 15px;
+box-shadow: 1px 1px 1px 1px #022C2E;
+}
+
+.roomcard:hover {
+  color:#588157;
+}
+
+a.link {
+  text-decoration: none;
+  color: white;
+}
+
+a.link:hover {
+  text-decoration: none;
+  color: white;
+}
+
+button {
+  border: white;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.closeForm {
+  font-size: 50px;
+  color: #3A5A40;
+}
+
+.openForm {
+  font-size: 50px;
+  color: #3A5A40;
+}
+
+.openForm:hover {
+  border-color: #3A5A40;
+}
