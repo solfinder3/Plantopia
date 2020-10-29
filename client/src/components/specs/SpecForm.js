@@ -15,8 +15,8 @@ const SpecForm = (props) => {
   const [plantgrowth, setPlantGrowth] = useState("");
   const [prune, setPrune] = useState("");
   const [repot, setRepot] = useState("");
-  const [indoor, setIndoor] = useState("");
-  const [outdoor, setOutdoor] = useState("");
+  const [indoor, setIndoor] = useState(false);
+  const [outdoor, setOutdoor] = useState(false);
   const [pests, setPests] = useState("");
 
   useEffect(() => {
@@ -228,19 +228,21 @@ const SpecForm = (props) => {
         <p>Re-pot</p>
         <input
           label="indoor"
-          placeholder="keep indoor all year"
+          checked={indoor}
           name="indoor"
-          onChange={handleIndoorChange}
-          value={indoor}
+          onChange={() => setIndoor(!indoor)}
+          value="indoor"
+          type="checkbox"
         />
         <p>Indoor Plant</p>
         <input
           label="outdoor"
-          placeholder="leave outdoor, kill the bugs!"
+          checked={outdoor}
           name="outdoor"
-          onChange={handleOutdoorChange}
-          value={outdoor}
-          select="yes"
+          onChange={() => setOutdoor(!outdoor)}
+          value="outdoor"
+          type="checkbox"
+
         />
         <p>Outdoor Plant</p>
         <input
@@ -249,7 +251,6 @@ const SpecForm = (props) => {
           name="pests"
           onChange={handlePestsChange}
           value={pests}
-          select="yes"
         />
         <p>Buggers</p>
         <button type='submit'>Submit</button>

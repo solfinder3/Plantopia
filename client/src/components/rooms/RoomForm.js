@@ -36,6 +36,8 @@ const RoomForm = (props) => {
     }
   }
 
+  
+
   return (
     <Wrapper>
       <Form onSubmit={handleSubmit}>
