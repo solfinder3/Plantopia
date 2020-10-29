@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const PlantWrap = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding-top: 2em;
   height: auto;
@@ -16,6 +16,7 @@ export const PlantWrap = styled.div`
   @media screen and (max-width: 900px) {
     order: 2;
     flex-direction: column;
+    align-items: center;
   }
 `
 
@@ -52,8 +53,8 @@ border: 2px solid #3A5A40;
 border-radius: 10px;
 height: 2em;
 width: 7em;
-margin-left: 10px;
-margin-top: 15px;
+margin: 15px 10px;
+
  &:hover {
   color: ${props => props.primary ? "white" : "#3A5A40"};
   background: ${props => props.primary ? "#3A5A40" : "white"};
@@ -155,8 +156,8 @@ export const Info1 = styled.p`
 export const Image = styled.img`
   align-self: center;
   order: 2;
-  height: 600px;
-  width: 600px;
+  height: 575px;
+  width: 575px;
   border-radius: 20px;
 
   @media screen and (max-width: 1100px) {
@@ -253,3 +254,5 @@ export const Line1 = styled.hr`
     display: flex;
   }
 `
+
+

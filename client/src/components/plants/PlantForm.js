@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Dropzone from 'react-dropzone'
 
+
+import { Button, Wrapper, Form, FormInput, DropDiv } from '../../styles/RoomForm'
+
 const PlantForm = (props) => {
   const [name, setName] = useState("");
   const [species, setSpecies] = useState("");
@@ -48,30 +51,32 @@ const PlantForm = (props) => {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <Dropzone
-          onDrop={onDrop}
-          multiple={false}
-          onChange={handleFileChange}
-        >
-          {({ getRootProps, getInputProps, isDragActive }) => {
-            return (
-              <div
-                {...getRootProps()}
-                style={styles.dropzone}
-              >
-                <input {...getInputProps()} />
-                {
-                  isDragActive ?
-                    <p>Drop files here...</p> :
-                    <p>Try dropping some files here, or click to select files to upload.</p>
-                }
-              </div>
-            )
-          }}
-        </Dropzone>
-        <input
+    <Wrapper>
+      <Form onSubmit={handleSubmit}>
+        <DropDiv>
+          <Dropzone
+            onDrop={onDrop}
+            multiple={false}
+            onChange={handleFileChange}
+          >
+            {({ getRootProps, getInputProps, isDragActive }) => {
+              return (
+                <div
+                  {...getRootProps()}
+                  style={styles.dropzone}
+                >
+                  <input {...getInputProps()} />
+                  {
+                    isDragActive ?
+                      <p>Drop files here...</p> :
+                      <p>Try dropping some files here, or click to select files to upload.</p>
+                  }
+                </div>
+              )
+            }}
+          </Dropzone>
+        </DropDiv>
+        <FormInput
           label="Name"
           placeholder="Plant Name"
           name="name"
@@ -79,7 +84,7 @@ const PlantForm = (props) => {
           onChange={handleNameChange}
           value={name}
         />
-        <input
+        <FormInput
           label="Plant species"
           placeholder="Plant Species"
           name="species"
@@ -87,7 +92,7 @@ const PlantForm = (props) => {
           onChange={handleSpeciesChange}
           value={species}
         />
-        <input
+        <FormInput
           label="Plant's Colors"
           placeholder="Plants Colors"
           name="colors"
@@ -95,9 +100,9 @@ const PlantForm = (props) => {
           onChange={handleColorsChange}
           value={colors}
         />
-        <button type='submit'>Submit</button>
-      </form>
-    </>
+        <Button type='submit'>Submit</Button>
+      </Form>
+    </Wrapper>
   )
 }
 

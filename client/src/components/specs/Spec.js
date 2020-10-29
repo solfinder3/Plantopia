@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react';
 import { SpecConsumer } from '../../providers/SpecProvider';
 import SpecForm from './SpecForm';
 
-import { Specs } from '../../styles/PlantPageElements';
+import { Specs, Button } from '../../styles/PlantPageElements';
 
-import { Button } from '../../styles/SharedElements'
+// import { Button } from '../../styles/SharedElements'
 
 const Spec = (props) => {
   const [toggleEdit, setToggleEdit] = useState(false)

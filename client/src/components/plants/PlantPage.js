@@ -34,15 +34,18 @@ const PlantPage = (props) => {
         <Info1>{props.plant.species}</Info1>
         <Image src={props.plant.image || '/images/plant.svg'} />
               <ButtonWrap>
-                <Button onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Close Form' : 'Edit'}</Button>
+                <Button onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Close' : 'Edit'}</Button>
                 <Button onClick={() => props.deletePlant(props.plant.room_id, props.plant.id)}>Delete</Button>
               </ButtonWrap>
               <Line1 />
       </RightWrap>
       <LeftWrap>
         <PlantInfo>
-          {toggleEdit ? editView() : 
-          <>
+          
+          {toggleEdit ? 
+            editView() 
+            : 
+            <>
               <InfoTitle>{props.plant.name}</InfoTitle>
               <Info>{props.plant.species}</Info>
               {/* <Info>{props.plant.colors}</Info> */}

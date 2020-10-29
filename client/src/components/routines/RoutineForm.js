@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
+import { Form, Button,  } from '../../styles/FormElements'
+
 const RoutineForm = (props) => {
   const [Time, setTime] = useState('')
   const [action, setAction] = useState('')
@@ -74,7 +76,7 @@ const RoutineForm = (props) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <input 
           type='time'
           name='Time'
@@ -155,8 +157,8 @@ const RoutineForm = (props) => {
           checked={saturday}
          
         />
-        <button type='submit'>submit</button>
-      </form>
+        <Button type='submit'>submit</Button>
+      </Form>
     </>
   )
 
