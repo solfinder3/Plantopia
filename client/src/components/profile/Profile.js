@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {AuthConsumer} from '../../providers/AuthProvider'
 import Dropzone from 'react-dropzone'
+import '../../styles/Profile.css'
 
 const defaultImage = 'https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png';
 
