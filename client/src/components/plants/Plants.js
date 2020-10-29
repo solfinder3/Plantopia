@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { PlantConsumer } from '../../providers/PlantProvider';
 import PlantForm from './PlantForm';
 import Plant from './Plant'
+import plantsstyled from '../../styles/PlantsStyles'
+import '../../styles/Plants.css';
 
 const Plants = (props) => {
   const [toggleForm, setToggleForm] = useState(false)
@@ -14,11 +16,11 @@ const Plants = (props) => {
   const listPlants = () => {
     if (props.plants.length !== 0) {
       return (
-        <ul>
+        <div>
           { props.plants.map( p =>
             <Plant {...p} />
           )}
-        </ul>
+        </div>
       )
     } else {
       return (<h1>No Plants</h1>)
@@ -27,10 +29,12 @@ const Plants = (props) => {
   // if(!props.rooms) return null
   return (
     <>
-    <button onClick={() => setToggleForm(!toggleForm)}>{ toggleForm ? 'Exit' : 'Open Form' }</button>
+    <div className='plantpicture'>
+      <button onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? <div className='plantsExit'>Exit</div> : <div className='plantsPicture'>Add Plant</div>}</button>
+    </div>
       {
         toggleForm ? 
-        <PlantForm addPlant={props.addPlant} room_id={props.room_id} toggleForm={setToggleForm} />
+        <PlantForm addPlant={ props.addPlant} room_id={props.room_id} toggleForm={setToggleForm} />
         :
         <></>
       }

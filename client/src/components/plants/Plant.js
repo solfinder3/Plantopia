@@ -3,17 +3,14 @@ import { PlantConsumer } from '../../providers/PlantProvider';
 import { Link } from 'react-router-dom';
 
 const Plant = (props) => (
-
-    <ul>
-      <li>
-      <Link to={{pathname:`/rooms/${props.room_id}/plants/${props.id}`, state: {room_id: props.room_id}}}>{props.name}</Link>
+    <div className='plantsmap'>
+      <Link to={{pathname:`/rooms/${props.room_id}/plants/${props.id}`, state: {room_id: props.room_id}}}>{<div className='plantstextlink'> {props.name} </div>}</Link>
+      <ul>
+      <li>{props.species}</li>
       <br />
-      {props.species}
-      <br />
-      {props.colors}
-      <br />
-      </li>
-    </ul>
+      <li>{props.colors}</li>
+      </ul>
+    </div>
     )
  
 
