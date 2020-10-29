@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import {AuthConsumer} from '../../providers/AuthProvider'
 
+import { Wrapper, Form, Button, FormInput } from '../../styles/RoomForm'
+
+
 
 const RoomForm = (props) => {
   const [roomName, setRoomName] = useState("");
@@ -36,9 +39,9 @@ const RoomForm = (props) => {
   
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input
+    <Wrapper>
+      <Form onSubmit={handleSubmit}>
+        <FormInput
           label="Room Name"
           placeholder="Room Name"
           name="roomName"
@@ -46,7 +49,7 @@ const RoomForm = (props) => {
           onChange={handleRoomNameChange}
           value={roomName}
         />
-        <input
+        <FormInput
           label="Room's Sun Amount"
           placeholder="Sun Amount"
           name="sunAmount"
@@ -54,9 +57,9 @@ const RoomForm = (props) => {
           onChange={handleSunAmountChange}
           value={sunAmount}
         />
-        <input type="submit"/>
-      </form>
-    </>
+        <Button type="submit">Submit</Button>
+      </Form>
+    </Wrapper>
   )
 }
 
