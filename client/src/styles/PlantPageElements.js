@@ -23,12 +23,12 @@ export const PlantWrap = styled.div`
 export const RoutineButton = styled.button`
 font-family: 'Noto Sans TC', sans-serif;
 /* Adapt the colors based on primary prop */
-background: ${props => props.primary ? "white" : "#3A5A40"};
-color: ${props => props.primary ? "#3A5A40" : "white"};
+background: ${props => props.primary ? "white" : "#274428"};
+color: ${props => props.primary ? "#274428" : "white"};
 font-size: 1.3em;
 margin: 10px;
 padding: 0.25em 1em;
-border: 2px solid #3A5A40;
+border: 2px solid #274428;
 border-radius: 10px;
 width: 8em;
 align-items: center;
@@ -37,39 +37,39 @@ align-self: center;
 justify-content: center;
 
  &:hover {
-  color: ${props => props.primary ? "white" : "#3A5A40"};
-  background: ${props => props.primary ? "#3A5A40" : "white"};
+  color: ${props => props.primary ? "white" : "#274428"};
+  background: ${props => props.primary ? "#274428" : "white"};
  }
 `;
 
 export const Button = styled.button`
 font-family: 'Noto Sans TC', sans-serif;
 /* Adapt the colors based on primary prop */
-background: ${props => props.primary ? "white" : "#3A5A40"};
-color: ${props => props.primary ? "#3A5A40" : "white"};
+background: ${props => props.primary ? "white" : "#274428"};
+color: ${props => props.primary ? "#274428" : "white"};
 font-size: 1.3em;
 padding: 0.25em 1em;
-border: 2px solid #3A5A40;
+border: 2px solid #274428;
 border-radius: 10px;
 height: 2em;
 width: 7em;
 margin: 15px 10px;
 
  &:hover {
-  color: ${props => props.primary ? "white" : "#3A5A40"};
-  background: ${props => props.primary ? "#3A5A40" : "white"};
+  color: ${props => props.primary ? "white" : "#274428"};
+  background: ${props => props.primary ? "#274428" : "white"};
  }
 `;
 
 export const SpecButton = styled.button`
 font-family: 'Noto Sans TC', sans-serif;
 /* Adapt the colors based on primary prop */
-background: ${props => props.primary ? "white" : "#3A5A40"};
-color: ${props => props.primary ? "#3A5A40" : "white"};
+background: ${props => props.primary ? "white" : "#274428"};
+color: ${props => props.primary ? "#274428" : "white"};
 font-size: 1.3em;
 margin: 10px;
 padding: 0.25em 1em;
-border: 2px solid #3A5A40;
+border: 2px solid #274428;
 border-radius: 10px;
 width: 8em;
 align-items: center;
@@ -78,8 +78,8 @@ align-self: center;
 justify-content: center;
 
  &:hover {
-  color: ${props => props.primary ? "white" : "#3A5A40"};
-  background: ${props => props.primary ? "#3A5A40" : "white"};
+  color: ${props => props.primary ? "white" : "#274428"};
+  background: ${props => props.primary ? "#274428" : "white"};
  }
 `;
 
@@ -101,7 +101,7 @@ export const InfoWrap = styled.div`
 
 export const InfoTitle = styled.p`
   font-family: 'Noto Sans TC', sans-serif;
-  color: #3A5A40;
+  color: #274428;
   font-size: 50px;
   display: flex;
   justify-content: center;
@@ -114,7 +114,7 @@ export const InfoTitle = styled.p`
 
 export const InfoTitle1 = styled.p`
   font-family: 'Noto Sans TC', sans-serif;
-  color: #3A5A40;
+  color: #274428;
   font-size: 50px;
   display: none;
   justify-content: center;
@@ -127,7 +127,7 @@ export const InfoTitle1 = styled.p`
 
 export const Info = styled.p`
   font-family: 'Noto Sans TC', sans-serif;
-  color: #3A5A40;
+  color: #274428;
   font-size: 30px;
   display: flex;
   justify-content: center;
@@ -141,7 +141,7 @@ export const Info = styled.p`
 
 export const Info1 = styled.p`
   font-family: 'Noto Sans TC', sans-serif;
-  color: #3A5A40;
+  color: #274428;
   font-size: 30px;
   display: none;
   justify-content: center;
@@ -196,15 +196,15 @@ export const RoutinesWrap1 = styled.div`
 
 export const Routines = styled.p`
   font-family: 'Josefin Sans', sans-serif;
-  color: #3A5A40;
+  color: #274428;
   font-size: 17px;
   display: flex;
   justify-content: flex-start;
 `
 
-export const Specs = styled.p`
+export const SpecsContainer = styled.p`
   font-family: 'Josefin Sans', sans-serif;
-  color: #3A5A40;
+  color: #274428;
   font-size: 17px;
   display: flex;
   justify-content: flex-start;
@@ -231,8 +231,8 @@ export const LeftWrap = styled.div`
 export const Line = styled.hr`
   width: 350px;
   height: 2px;
-  color: #3A5A40;
-  background: #3A5A40;
+  color: #274428;
+  background: #274428;
   border-radius: 40%;
   margin-left: 45px;
 
@@ -245,8 +245,8 @@ export const Line = styled.hr`
 export const Line1 = styled.hr`
   width: 450px;
   height: 2px;
-  color: #3A5A40;
-  background: #3A5A40;
+  color: #274428;
+  background: #274428;
   border-radius: 40%;
   display: none;
 

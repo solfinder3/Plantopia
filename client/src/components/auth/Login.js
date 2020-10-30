@@ -1,7 +1,11 @@
 import React from 'react';
 import { AuthConsumer, } from "../../providers/AuthProvider";
 
-import { Form, Wrapper, Header, ButtonWrapper, FormInput, Button } from '../../styles/FormElements';
+import { Form, Wrapper, Header, ButtonWrapper, FormInput, Button, Img, HomeBg } from '../../styles/FormElements';
+
+// import { Img, HomeBg } from '../../styles/SharedElements';
+
+import Bg from '../../images/bg.jpg';
 
 class Login extends React.Component {
   state = { email: '', password: '' }

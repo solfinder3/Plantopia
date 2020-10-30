@@ -1,9 +1,26 @@
-a {
+div a {
   font-size: 1.5em;
-  padding: 0 10px;
+  padding: 0 15px;
   color: white;
   font-family: 'Noto Sans TC', sans-serif;
-  text-decoration: none
+  text-decoration: none;
+  align-self: center;
+}
+
+div a:hover{
+  color: lightgrey;
+}
+
+div button {
+  font-family: 'Noto Sans TC', sans-serif;
+  padding-right: 30px;
+  background: none;
+  font-size: 1.5em;
+  color: white;
+}
+
+div button:hover {
+  color: lightgrey;
 }
 
 .rightNav {
@@ -13,6 +30,15 @@ a {
 }
 
 .navContainer {
-  background: #3A5A40;
-  height: 30px ;
+  background: #274428;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navContainer img {
+  height: 55px;
+  display: flex;
+  padding-left: 25px;
 }

@@ -4,6 +4,8 @@ import {AuthConsumer} from '../../providers/AuthProvider';
 import {} from '../../styles/NavbarStyles';
 import '../../styles/Navbar.css'
 
+import Logo from '../../images/logo.png';
+
 
 const Navbar = (props) => {
 
@@ -13,21 +15,18 @@ const Navbar = (props) => {
     if (user) {
       return (
       // <div>Hello {user.firstName}!
-      
       <div className="rightNav">
         <Link to='/'>Home</Link>
         <Link to='/rooms'>Rooms</Link>
         <Link to='/profile'>Profile</Link>
         {/* <Link to='/'>Log Out</Link> */}
-        <button onClick={ () => handleLogout(props.history)}>Log Out</button>
+        <Link onClick={ () => handleLogout(props.history)} to='/'>Log Out</Link>
       </div>
-      
       // </div>
       )
     } else {
       return (
-        <div className="righNav">No user
-
+        <div className="righNav">
         <Link to='/login'>Log In</Link>
         <Link to='/register'>Register</Link>
         </div>
@@ -41,6 +40,9 @@ const Navbar = (props) => {
 
   return (
     <div className="navContainer">
+        <div className='leftWrap'>
+          <img src={Logo} alt='logo' />
+        </div>
       {navAuth()}
     </div>
   )

@@ -39,7 +39,6 @@ const PlantProvider = ({children}) => {
   }
 
   const updatePlant = (room_id, id, plant) => {
-    debugger
     let data = new FormData();
     data.append('file', plant.file);
 

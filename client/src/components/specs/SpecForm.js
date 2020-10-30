@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import { Form, FormInput, InputDiv, Button, CheckInput } from '../../styles/SmallFormElements';
+
 
 const SpecForm = (props) => {
   const [water, setWater] = useState("");
@@ -118,143 +120,174 @@ const SpecForm = (props) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <p>Add specs to your plant</p>
-        <input
-          label="water"
-          placeholder="Water twice a day"
-          name="water"
-          onChange={handleWaterChange}
-          value={water}
-        />
-        <p>Water</p>
-        <input
-          label="ferilizer"
-          placeholder="once a month Ferilize"
-          name="Ferilizer"
-          onChange={handleFerilizerChange}
-          value={ferilizer}
-        />
-        <p>Ferilizer</p>
-        <input
-          label="sunlight"
-          placeholder="more sunlight or shad?"
-          name="sunlight"
-          type="number"
-          onChange={handleSunlightChange}
-          value={sunlight}
-        />
-        <p>Sunlight</p>
-        <input
-          label="temperature"
-          placeholder="80℉-100℉, 20°C-37°C"
-          name="temperature"
-          type="number"
-          onChange={handleTemperatureChange}
-          value={temperature}
-        />
-        <p>Temerature</p>
-        <input
-          label="humidity"
-          placeholder="0%-100%"
-          name="humidity"
-          onChange={handleHumidityChange}
-          value={humidity}
-        />
-        <p>Humidity</p>
-        <input
-          label="soil"
-          placeholder="PH (nutrual, alkaline, acid)"
-          name="soil"
-          onChange={handleSoilChange}
-          value={soil}
-        />
-        <p>Soil/PH</p>
-        <input
-          label="full size"
-          placeholder="Hight-10Ft, Width-90Ft, Length-2Ft"
-          name="full size"
-          onChange={handleFullSizeChange}
-          value={fullsize}
-        />
-        <p>Size of Plant</p>
-        <input
-          label="planting"
-          placeholder="Date Planted"
-          name="planting"
-          onChange={handlePlantingChange}
-          value={planting}
-        />
-        <p>Date Planted</p>
-        <input
-          label="annual"
-          placeholder="plant every two years"
-          name="annual"
-          onChange={handleAnnualChange}
-          value={annual}
-        />
-        <p>Annual</p>
-        <input
-          label="perannual"
-          placeholder="plant in spring"
-          name="perannual"
-          onChange={handlePerannualChange}
-          value={perannual}
-        />
-        <p>Perannual</p>
-        <input
-          label="plant growth"
-          placeholder="0-100Ft tall"
-          name="plant growth"
-          onChange={handlePlantGrowthChange}
-          value={plantgrowth}
-        />
-        <p>Plant Growth</p>
-        <input
-          label="prune"
-          placeholder="prune once a month"
-          name="prune"
-          onChange={handlePruneChange}
-          value={prune}
-        />
-        <p>Prune</p>
-        <input
-          label="re-pot"
-          placeholder="Re-pot when 50Ft tall"
-          name="Re-pot"
-          onChange={handleRepotChange}
-          value={repot}
-        />
-        <p>Re-pot</p>
-        <input
-          label="indoor"
-          checked={indoor}
-          name="indoor"
-          onChange={() => setIndoor(!indoor)}
-          value="indoor"
-          type="checkbox"
-        />
-        <p>Indoor Plant</p>
-        <input
-          label="outdoor"
-          checked={outdoor}
-          name="outdoor"
-          onChange={() => setOutdoor(!outdoor)}
-          value="outdoor"
-          type="checkbox"
-
-        />
-        <p>Outdoor Plant</p>
-        <input
-          label="pests"
-          placeholder="Squash Bugs, caterpillars"
-          name="pests"
-          onChange={handlePestsChange}
-          value={pests}
-        />
-        <p>Buggers</p>
-        <button type='submit'>Submit</button>
-      </form>
+      <Form onSubmit={handleSubmit}>
+        <InputDiv>
+          Indoor-
+          <CheckInput
+            label="indoor"
+            checked={indoor}
+            name="indoor"
+            onChange={() => setIndoor(!indoor)}
+            value="indoor"
+            type="checkbox"
+          />
+        </InputDiv>
+        <InputDiv>
+          Outdoor-
+          <CheckInput
+            label="outdoor"
+            checked={outdoor}
+            name="outdoor"
+            onChange={() => setOutdoor(!outdoor)}
+            value="outdoor"
+            type="checkbox"
+            
+          />
+        </InputDiv>
+        <InputDiv>
+          Water - 
+          <FormInput
+            label="water"
+            placeholder="Water twice a day"
+            name="water"
+            onChange={handleWaterChange}
+            value={water}
+          />
+        </InputDiv>
+        <InputDiv>
+          Fertilizer-
+          <FormInput
+            label="ferilizer"
+            placeholder="once a month Ferilize"
+            name="Ferilizer"
+            onChange={handleFerilizerChange}
+            value={ferilizer}
+          />
+        </InputDiv>
+        <InputDiv>
+          Sunlight-
+          <FormInput
+            label="sunlight"
+            placeholder="more sunlight or shad?"
+            name="sunlight"
+            type="number"
+            onChange={handleSunlightChange}
+            value={sunlight}
+            />
+        </InputDiv>
+        <InputDiv>
+          Temperature-
+          <FormInput
+            label="temperature"
+            placeholder="80℉-100℉, 20°C-37°C"
+            name="temperature"
+            type="number"
+            onChange={handleTemperatureChange}
+            value={temperature}
+          />
+        </InputDiv>
+        <InputDiv>
+        Humidity-
+          <FormInput
+            label="humidity"
+            placeholder="0%-100%"
+            name="humidity"
+            onChange={handleHumidityChange}
+            value={humidity}
+          />
+        </InputDiv>
+        <InputDiv>
+          Soil PH-
+          <FormInput
+            label="soil"
+            placeholder="PH (nutrual, alkaline, acid)"
+            name="soil"
+            onChange={handleSoilChange}
+            value={soil}
+          />
+        </InputDiv>
+        <InputDiv>
+          Size-
+          <FormInput
+            label="full size"
+            placeholder="Hight-10Ft, Width-90Ft, Length-2Ft"
+            name="full size"
+            onChange={handleFullSizeChange}
+            value={fullsize}
+          />
+        </InputDiv>
+        <InputDiv>
+          Date-
+          <FormInput
+            label="planting"
+            placeholder="Date Planted"
+            name="planting"
+            onChange={handlePlantingChange}
+            value={planting}
+          />
+        </InputDiv>
+        <InputDiv>
+          Perennial-
+          <FormInput
+            label="annual"
+            placeholder="plant every two years"
+            name="annual"
+            onChange={handleAnnualChange}
+            value={annual}
+          />
+        </InputDiv>
+        <InputDiv>
+          Perannual-
+          <FormInput
+            label="perannual"
+            placeholder="plant in spring"
+            name="perannual"
+            onChange={handlePerannualChange}
+            value={perannual}
+            />
+        </InputDiv>
+        <InputDiv>
+          Growth-
+          <FormInput
+            label="plant growth"
+            placeholder="0-100Ft tall"
+            name="plant growth"
+            onChange={handlePlantGrowthChange}
+            value={plantgrowth}
+          />
+        </InputDiv>
+        <InputDiv>
+          Prune-
+          <FormInput
+            label="prune"
+            placeholder="prune once a month"
+            name="prune"
+            onChange={handlePruneChange}
+            value={prune}
+          />
+        </InputDiv>
+        <InputDiv>
+          Re-pot-
+          <FormInput
+            label="re-pot"
+            placeholder="Re-pot when 50Ft tall"
+            name="Re-pot"
+            onChange={handleRepotChange}
+            value={repot}
+          />
+        </InputDiv>
+        <InputDiv>
+          Pests-
+          <FormInput
+            label="pests"
+            placeholder="afids"
+            name="pests"
+            onChange={handlePestsChange}
+            value={pests}
+          />
+        </InputDiv>
+        <Button type='submit'>Submit</Button>
+      </Form>
     </>
   )
 }

@@ -81,3 +81,30 @@ a.link:hover {
   text-decoration: none;
   color: white;
 }
+
+button {
+  border: white;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.closeForm {
+  font-size: 50px;
+  color: #3A5A40;
+}
+
+.openForm {
+  font-size: 50px;
+  color: #3A5A40;
+}
+
+.openForm:hover {
+  border-color: #3A5A40;
+}
+
+.showroom {
+  padding-top: 5px;
+
+}
