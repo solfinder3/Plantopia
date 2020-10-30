@@ -1,0 +1,8 @@
+h1 {
+  font-family: 'Noto Sans TC', sans-serif;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
