@@ -29,9 +29,6 @@ const Plants = (props) => {
   return (
     <>
     <div className='plantpicture'>
-      <br />
-      <br />
-      <br />
       <button onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? <div className='plantsExit'>Exit</div> : <div className='plantsPicture'>Add Plant</div>}</button>
     </div>
       {

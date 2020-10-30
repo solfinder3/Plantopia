@@ -43,7 +43,8 @@ width: 160px;
 }
 
 .showroom button:hover {
- color:  #A3B18A;
+ color:  #3A5A40;
+ background-color: white;
 }
 
 /* add picture of plant */
@@ -51,9 +52,6 @@ width: 160px;
 color: #588157;
 border-radius: 5px;
 outline: none;
-/* border: white;
-background-color: white;
-cursor: pointer; */
 font-family: 'Josefin Sans', sans-serif;
 flex: 0 0 33.333333%;
 border:1px solid black;
@@ -64,7 +62,7 @@ box-shadow: 1px 1px 1px 1px #022C2E;
  display: flex;
   flex-wrap: wrap;
   color: white;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .plantpicture button {
@@ -92,23 +90,12 @@ box-shadow: 1px 1px 1px 1px #022C2E;
 }
 
 .plantsPicture:hover {
-  color:#A3B18A;
+  color:#3A5A40;
+  background-color: white;
 }
 
 /* header "your plants" */
-/* h1 {
-text-align: center;
-font-family: 'Noto Sans TC', sans-serif; */
-/* text-decoration-line: underline; */
-/* color: #588157;
-font-size: 50px;
-flex: 0 0 33.333333%;
-border:1px solid black;
-background-color:#3A5A40;
-padding: 20px;
-margin: 0px;
-box-shadow: 1px 1px 1px 1px #022C2E;
-} */
+/* h1 {} */
 
 
 /* header for plant name, spieces, and color */
@@ -121,11 +108,17 @@ font-family: 'Josefin Sans', sans-serif;
 border:1px solid black;
 background-color:#3A5A40;
 padding: 10px;
-margin: 10px;
+margin: 20px;
 box-shadow: 1px 1px 1px 1px #022C2E;
   color: white;
   text-align: center;
-  font-size: 15px;
+  font-size: 30px;
+  line-height: -20px;
+}
+
+button .plantsExit:hover {
+  color: #3A5A40;
+  background-color: white;
 }
 
 .plantsmap li{
@@ -133,6 +126,7 @@ text-align: center;
 }
 
 .plantstextlink {
+  font-size: 30px;
   text-decoration: none;
   color: white;
   font-family: 'Josefin Sans', sans-serif;
@@ -145,12 +139,13 @@ background-color:#3A5A40;
 padding: 10px;
 margin: 0px;
 box-shadow: 1px 1px 1px 1px #022C2E;
-  font-size: 20px;
   border-radius: 30px;
+  height: -20px;
 }
 
 .plantstextlink:hover {
-  color: #A3B18A;
+  color: #3A5A40;
+  background-color: white;
 }
 
 /* list of name, spieces, and color */
@@ -158,9 +153,8 @@ box-shadow: 1px 1px 1px 1px #022C2E;
   color: #A3B18A;
   font-size: 20px;
   font-family: 'Josefin Sans', sans-serif;
-  color: green;
   text-align: center;
-  line-height: 30px;
+  line-height: 50px;
 }
 
 
