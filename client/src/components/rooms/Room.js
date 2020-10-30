@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 const Room = (props) => {
   return (
     <Link className = "link roomcard" to={`/rooms/${props.id}`}>
-      <p>{props.sun_amount} {props.name}</p>
+      <p>Room- {props.name}</p>
+      <p>Sun- {props.sun_amount}</p>
     </Link>
     )
   }
