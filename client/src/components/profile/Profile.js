@@ -122,7 +122,7 @@ const Profile = (props) => {
   return (
     <>
       {toggleEdit ? editView() : profileView()}
-  <button onClick={() => setToggleEdit(!toggleEdit)}>
+  <button className='profile-button' onClick={() => setToggleEdit(!toggleEdit)}>
     {toggleEdit ? 'Exit' : 'Edit'}
   </button>
     </>

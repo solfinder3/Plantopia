@@ -16,7 +16,7 @@ const Home = () => (
       <Grid.Row style={{padding:'3em 0em'}}>
       <Label>Never mismanage your plants again.</Label>
       </Grid.Row>
-      <Link to='/login'>Login
+      <Link to='/login'>
       <Button>LOGIN</Button>
       </Link>
       <Link to='/register'>
