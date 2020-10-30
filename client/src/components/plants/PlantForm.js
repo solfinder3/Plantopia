@@ -39,10 +39,10 @@ const PlantForm = (props) => {
     e.preventDefault();
     if (props.plant) {
       props.updatePlant(props.plant.room_id, props.plant.id, {name, species, colors, file})
-      props.toggleEdit()
+      props.toggleEdit(false)
     } else {
       props.addPlant(props.room_id, {name, species, colors, file})
-      props.toggleForm()
+      props.toggleForm(false)
     }
   }
 

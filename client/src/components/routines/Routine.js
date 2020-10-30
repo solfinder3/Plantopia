@@ -2,6 +2,8 @@ import React, {useState, useEffect}  from 'react';
 import { RoutineConsumer } from '../../providers/RoutineProvider';
 import RoutineForm from './RoutineForm';
 
+import Moment from 'react-moment';
+
 import { RoutineWrap, Routines, ButtonWrap, Button } from '../../styles/PlantPageElements'
 
 const Routine = (props) => {
@@ -29,7 +31,9 @@ const Routine = (props) => {
         
         {toggleEdit ? editView() :
           <RoutineWrap>
-          <Routines>Time: {props.routine_time}</Routines>
+          <Routines>Time:
+             <Moment format='H:MM A'>{props.routine_time}</Moment>
+          </Routines>
           <Routines>
             Action: {props.action} -
             Sunday: {props.sunday ? 'true' : 'false'}

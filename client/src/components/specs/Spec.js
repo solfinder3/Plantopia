@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { SpecConsumer } from '../../providers/SpecProvider';
 import SpecForm from './SpecForm';
 
-import { Specs, Button } from '../../styles/PlantPageElements';
+import { SpecsContainer, Button } from '../../styles/PlantPageElements';
 
 // import { Button } from '../../styles/SharedElements'
 
@@ -31,32 +31,32 @@ const Spec = (props) => {
       <ul>
           {toggleEdit ? editView() :
             <>
-              <Specs>
+              <SpecsContainer>
                 Water Amount: {props.water} ||
                 Ferilizer: {props.ferilizer}
-              </Specs>
-              <Specs>
+              </SpecsContainer>
+              <SpecsContainer>
                 Sunlight: {props.sunlight } ||
                 Termperature: {props.temperature}
-              </Specs>
-              <Specs>
+              </SpecsContainer>
+              <SpecsContainer>
                 Humidity: {props.humidity} ||
                 Soil: {props.soil} ||
                 Size: {props.fullsize}
-              </Specs>
-              <Specs>
+              </SpecsContainer>
+              <SpecsContainer>
                 Date Planted: {props.planting} ||
                 Annual: {props.annual}
-              </Specs>
-              <Specs>
+              </SpecsContainer>
+              <SpecsContainer>
                 Preannual: {props.perannual} ||
                 Plant Growth: {props.plantgrowth}
-              </Specs>
-              <Specs>
+              </SpecsContainer>
+              <SpecsContainer>
                 Re-Pot: {props.repot} ||
                 Indoor: {props.indoor ? "✓" : "✗"} ||
                 Outdoor: {props.outdoor ? "✓" : "✗"}
-              </Specs>
+              </SpecsContainer>
             </>
           }
           <Button onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Close' : 'Edit'}</Button>

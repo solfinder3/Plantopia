@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-import { Form, Button,  } from '../../styles/FormElements'
+import { Form, Button, FormInput, InputDiv, CheckInput } from '../../styles/SmallFormElements'
 
 const RoutineForm = (props) => {
   const [Time, setTime] = useState('')
@@ -77,86 +77,99 @@ const RoutineForm = (props) => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <input 
-          type='time'
-          name='Time'
-          label='Time'
-          placeholder='Time'
-          required
-          value={Time}
-          onChange={handleTimeChange}
-        />
-        <input 
-          name='action'
-          label='Action'
-          placeholder='Action'
-          required       
-          value={action}
-          onChange={handleActionChange}
+        <InputDiv>
+          Time-
+          <FormInput 
+            type='time'
+            name='Time'
+            label='Time'
+            placeholder='Time'
+            required
+            value={Time}
+            onChange={handleTimeChange}
           />
-        <label>Sunday</label>
-        <input 
-          type='checkbox'
-          name='sunday'
-          value={sunday}
-          onChange={handleSundayChange}
-          checked={sunday}
-        
-        />
-        <label>Monday</label>
-        <input 
-          type='checkbox'
-          name='monday'
-          value={monday}
-          onChange={handleMondayChange}
-          checked={monday}
-         
-        />
-        <label>Tuesday</label>
-        <input 
-          type='checkbox'
-          name='tuesday'
-          value={tuesday}
-          onChange={handleTuesdayChange}
-          checked={tuesday}
-       
-        />
-        <label>Wednesday</label>
-        <input 
-          type='checkbox'
-          name='wednesday'
-          value={wednesday}
-          onChange={handleWednesdayChange}
-          checked={wednesday}
-         
-        />
-        <label>Thursday</label>
-        <input 
-          type='checkbox'
-          name='thursday'
-          value={thursday}
-          onChange={handleThursdayChange}
-          checked={thursday}
-       
-        />
-        <label>Friday</label>
-        <input 
-          type='checkbox'
-          name='friday'
-          value={friday}
-          onChange={handleFridayChange}
-          checked={friday}
-       
-        />
-        <label>Saturday</label>
-        <input 
-          type='checkbox'
-          name='saturday'
-          value={saturday}
-          onChange={handleSaturdayChange}   
-          checked={saturday}
-         
-        />
+        </InputDiv>
+        <InputDiv>
+          Action-
+          <FormInput 
+            name='action'
+            label='Action'
+            placeholder='Action'
+            required       
+            value={action}
+            onChange={handleActionChange}
+          />
+        </InputDiv>
+        <InputDiv>
+          Sunday-
+          <CheckInput 
+            type='checkbox'
+            name='sunday'
+            value={sunday}
+            onChange={handleSundayChange}
+            checked={sunday}
+          />
+        </InputDiv>
+        <InputDiv>
+          Monday-
+          <CheckInput 
+            type='checkbox'
+            name='monday'
+            value={monday}
+            onChange={handleMondayChange}
+            checked={monday}
+          />
+        </InputDiv>
+        <InputDiv>
+          Tuesday-
+          <CheckInput 
+            type='checkbox'
+            name='tuesday'
+            value={tuesday}
+            onChange={handleTuesdayChange}
+            checked={tuesday}
+          />
+        </InputDiv>
+        <InputDiv>
+          Wednesday-
+          <CheckInput 
+            type='checkbox'
+            name='wednesday'
+            value={wednesday}
+            onChange={handleWednesdayChange}
+            checked={wednesday}
+          />
+        </InputDiv>
+        <InputDiv>
+          Thursday-
+          <CheckInput 
+            type='checkbox'
+            name='thursday'
+            value={thursday}
+            onChange={handleThursdayChange}
+            checked={thursday}
+          />
+        </InputDiv>
+        <InputDiv>
+          Friday-
+          <CheckInput 
+            type='checkbox'
+            name='friday'
+            value={friday}
+            onChange={handleFridayChange}
+            checked={friday}   
+          />
+        </InputDiv>
+        <InputDiv>
+          Saturday-
+          <CheckInput 
+            type='checkbox'
+            name='saturday'
+            value={saturday}
+            onChange={handleSaturdayChange}   
+            checked={saturday}
+          />
+        </InputDiv>
         <Button type='submit'>submit</Button>
       </Form>
     </>
