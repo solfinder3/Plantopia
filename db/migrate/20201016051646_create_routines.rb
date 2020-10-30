@@ -1,7 +1,7 @@
 class CreateRoutines < ActiveRecord::Migration[6.0]
   def change
     create_table :routines do |t|
-      t.time :time
+      t.time :routine_time
       t.string :action
       t.boolean :sunday
       t.boolean :monday

@@ -23,7 +23,6 @@ const Plants = (props) => {
         </div>
       )
     } else {
-      return (<h1>No Plants</h1>)
     }
   }
   // if(!props.rooms) return null

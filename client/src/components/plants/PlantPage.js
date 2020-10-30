@@ -64,7 +64,7 @@ const PlantPage = (props) => {
             <>
               <InfoTitle>{props.plant.name}</InfoTitle>
               <Info>{props.plant.species}</Info>
-              {/* <Info>{props.plant.colors}</Info> */}
+              <Info>{props.plant.colors}</Info>
             </>
           }
 

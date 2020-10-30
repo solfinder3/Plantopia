@@ -19,7 +19,7 @@ const App = () => (
   <>
     <Navbar />
     <FetchUser>
-      <Container>
+      {/* <Container> */}
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={Login} />
@@ -30,7 +30,7 @@ const App = () => (
           <Route exact path='/profile' component={Profile} />
           <Route component={NoMatch} />
         </Switch>
-      </Container>
+      {/* </Container> */}
     </FetchUser>
   </>
 )
