@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Dropzone from 'react-dropzone'
 
 
-import { Button, Wrapper, Form, FormInput, DropDiv } from '../../styles/RoomForm'
+import { Button, Wrapper, Form, FormInput, DropDiv } from '../../styles/RoomFormStyles'
 
 const PlantForm = (props) => {
   const [name, setName] = useState("");

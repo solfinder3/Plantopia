@@ -6,3 +6,12 @@ h1 {
   text-align: center;
   justify-content: center;
 }
+
+.profile-button { 
+   border: #3A5A40;
+  background-color: #3A5A40;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+ }
