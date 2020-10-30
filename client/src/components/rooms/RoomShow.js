@@ -31,14 +31,16 @@ const RoomShow = (props) => {
       <div className='showroom'>
         {toggleEdit ? editView() : 
         <>
-          <p>{props.room.name}</p>
           <p>{props.room.sun_amount}</p>
+          <p>{props.room.name}</p>
         </>
         }
+        <div className = "plantRoomButtons">
         <button onClick={() => setToggleEdit(!toggleEdit)}>{toggleEdit ? 'Close Room' : 'Edit Room'}</button>
         <button onClick={() => props.deleteRoom(props.room.id)}>Delete</button>
         </div>
-          <h1>Your Plants</h1>
+        </div>
+          {/* <h1>Your Plants</h1> */}
         <div className='plantsstyles'>
           <plants><Plants room_id={props.room.id} /></plants>
       </div>

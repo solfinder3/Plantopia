@@ -4,6 +4,7 @@ import { RoomConsumer } from '../../providers/RoomProvider';
 import RoomForm from './RoomForm'
 import Room from  './Room';
 import '../../styles/Room.css';
+import  {Header} from '../../styles/SharedElements'
 
 
 const Rooms = (props) => {
@@ -23,19 +24,21 @@ const Rooms = (props) => {
         </div>
       )
     } else {
-      return ( <h1>No Rooms</h1> )
     }
   }
   // if(!props.rooms) return null
   return (
     <>
-      <floatdiv>Number of Rooms: {props.rooms.length}</floatdiv>
     <div className = "toprow">
-      <div>Your Rooms</div>
-    </div>
       <button onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? <div className='closeForm'>⍇</div>: <div className = 'openForm'>＋</div>}</button>
       {toggleForm ? <RoomForm addRoom={props.addRoom} toggle={setToggleForm} /> : ''}
+     <div>
+     <Header>Your Rooms</Header>
+     </div>
+      <div>Number of Rooms: {props.rooms.length}</div>
+    </div>
       {listRooms()}
+      
     </>
   )
 }

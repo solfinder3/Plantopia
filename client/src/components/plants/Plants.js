@@ -23,13 +23,15 @@ const Plants = (props) => {
         </div>
       )
     } else {
-      return (<h1>No Plants</h1>)
     }
   }
   // if(!props.rooms) return null
   return (
     <>
     <div className='plantpicture'>
+      <br />
+      <br />
+      <br />
       <button onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? <div className='plantsExit'>Exit</div> : <div className='plantsPicture'>Add Plant</div>}</button>
     </div>
       {

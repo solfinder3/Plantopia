@@ -27,5 +27,3 @@
 /config/master.key
 node_modules
 .env 
-
-Gemfile.lock
